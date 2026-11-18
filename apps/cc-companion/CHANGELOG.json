@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "0.5.0",
+   "date": "2026-11-18",
+   "title": "Updates from GitHub, installed by the app",
+   "notes": [
+    "Get the update now downloads the new build itself, checks its size and SHA-256, and hands it to Android to install.",
+    "Updates come from app-releases on GitHub, so they arrive wherever the phone is; the board on the Dell is used when GitHub cannot be reached.",
+    "The first time, Android asks you to allow CC Companion to install apps."
+   ]
+  },
+  {
    "version": "0.4.0",
    "date": "2026-11-17",
    "title": "Now CC Companion, Claude Control on your Android phone",
