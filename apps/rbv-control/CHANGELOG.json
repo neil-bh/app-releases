@@ -2,6 +2,16 @@
  "app": "rbv-control",
  "entries": [
   {
+   "version": "1.4.0",
+   "date": "2026-11-18",
+   "title": "Updates from GitHub",
+   "notes": [
+    "Looks for updates on the public app-releases page on GitHub first, and on the server when GitHub can't be reached.",
+    "Every download is checked (size and fingerprint) before it is installed; a mismatch is refused and said plainly.",
+    "Settings › Updates and Advanced › Logs say where the update came from."
+   ]
+  },
+  {
    "version": "1.3.0",
    "date": "2026-11-18",
    "title": "Old copies cleaned up, shows as installed",

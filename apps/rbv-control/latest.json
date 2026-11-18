@@ -1,0 +1,12 @@
+{
+ "app": "rbv-control",
+ "version": "1.4.0",
+ "tag": "rbv-control-v1.4.0",
+ "asset": "RBVControl-1.4.0.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/rbv-control-v1.4.0/RBVControl-1.4.0.exe",
+ "sha256": "b69735a61aa7d3c27903640302db7160d79a9701db1e9aca807da5e5c879e8a1",
+ "size": 13495808,
+ "date": "2026-11-18",
+ "notes_title": "Updates from GitHub",
+ "min_os": "Windows 10"
+}
