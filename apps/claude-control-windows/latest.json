@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.2.0",
- "tag": "claude-control-windows-v1.2.0",
- "asset": "ClaudeControl-1.2.0.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.2.0/ClaudeControl-1.2.0.exe",
- "sha256": "479661027f3be703997cb17df1c66066249454e6fcb80f7fae3b02361516a01e",
- "size": 13936128,
+ "version": "1.2.1",
+ "tag": "claude-control-windows-v1.2.1",
+ "asset": "ClaudeControl-1.2.1.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.2.1/ClaudeControl-1.2.1.exe",
+ "sha256": "91723b5a32792350f467256e0c9fbe2a1ebe74fb3e7734bdb4d6a3bd46df548e",
+ "size": 13941248,
  "date": "2026-11-18",
- "notes_title": "Updates from GitHub; tray numbers stay coloured",
+ "notes_title": "Tells the board which apps are running",
  "min_os": "Windows 10"
 }

@@ -2,6 +2,16 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.2.1",
+   "date": "2026-11-18",
+   "title": "Tells the board which apps are running",
+   "notes": [
+    "Claude Control now shows Tunnel Control as Running while it is open on this PC. Its SSH forwards leave nothing on the Dell to see, so this app tells the board instead.",
+    "RBV Control shows as running even when its tunnel to the Dell is down, and says so.",
+    "The PC is checked every 2 minutes. While an app is open it is reported again every 5 minutes, so after the PC sleeps it stops showing as running within about 12 minutes."
+   ]
+  },
+  {
    "version": "1.2.0",
    "date": "2026-11-18",
    "title": "Updates from GitHub; tray numbers stay coloured",
