@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""check: is every apps/<id>/ in this repo right (docs/RELEASES.md)? Exit 0 when it is, 1 with every problem said.
+
+  tools/check            all apps, and the root README's index
+  tools/check <app-id>   one app
+
+Per app: app.json's fields; README.md present; CHANGELOG.json is {app: <id>, entries: [...]} with each entry's
+version (numbers and dots, unique, newest first), date (YYYY-MM-DD), title and notes; latest.json (when there is one)
+has every field, its version is the newest CHANGELOG entry and its notes_title that entry's title, its tag and asset
+follow app.json's templates and its url is that release asset's GitHub download URL. No binaries are committed.
+Offline: nothing here asks GitHub.
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
+import applib as L  # noqa: E402
+
+BINARY_EXT = (".apk", ".exe", ".msi", ".zip", ".aab", ".ipa", ".dmg", ".appimage", ".deb")
+
+
+def check_one(app_id, root=L.ROOT):
+    errs = []
+    d = L.app_dir(app_id, root)
+    try:
+        app = L.load_app(app_id, root)
+    except L.Problem as e:
+        return [str(e)]
+    if not os.path.isfile(os.path.join(d, "README.md")):
+        errs.append("README.md is missing")
+    cl = None
+    try:
+        cl = L.read_json(os.path.join(d, "CHANGELOG.json"))
+        errs += [f"CHANGELOG.json: {e}" for e in L.check_changelog(cl, app_id)]
+    except FileNotFoundError:
+        errs.append("CHANGELOG.json is missing")
+    except ValueError as e:
+        errs.append(f"CHANGELOG.json is not JSON: {e}")
+    lp = os.path.join(d, "latest.json")
+    if os.path.exists(lp):
+        try:
+            errs += [f"latest.json: {e}" for e in L.check_latest(L.read_json(lp), app, cl if isinstance(cl, dict) else None)]
+        except ValueError as e:
+            errs.append(f"latest.json is not JSON: {e}")
+    for dp, _dn, fn in os.walk(d):
+        for f in fn:
+            if f.lower().endswith(BINARY_EXT):
+                errs.append(f"{os.path.relpath(os.path.join(dp, f), root)}: binaries are release assets, never committed")
+    return errs
+
+
+def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    root = os.environ.get("APP_RELEASES_ROOT") or L.ROOT
+    ids = argv or L.app_ids(root)
+    bad = 0
+    for app_id in ids:
+        errs = check_one(app_id, root)
+        bad += bool(errs)
+        print(f"  {'FAIL' if errs else 'PASS'} {app_id}" + "".join(f"\n       - {e}" for e in errs))
+    if not argv:
+        try:
+            with open(os.path.join(root, "README.md"), encoding="utf-8") as f:
+                text = f.read()
+            ok = L.root_readme(text, root) == text
+        except OSError:
+            ok = False
+        bad += not ok
+        print(f"  {'PASS' if ok else 'FAIL'} README.md index" + ("" if ok else " is out of date (tools/publish rewrites it; or run tools/check --fix-index)"))
+    print(f"check: {len(ids)} app(s), {'all good' if not bad else f'{bad} problem area(s)'}")
+    return 1 if bad else 0
+
+
+if __name__ == "__main__":
+    if sys.argv[1:2] == ["--fix-index"]:
+        p = os.path.join(L.ROOT, "README.md")
+        with open(p, encoding="utf-8") as f:
+            t = f.read()
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(L.root_readme(t))
+        print("README.md index rewritten")
+        sys.exit(0)
+    sys.exit(main())

@@ -1,0 +1,51 @@
+{
+ "app": "family-game-night",
+ "entries": [
+  {
+   "version": "454186",
+   "date": "2026-11-12",
+   "title": "Build 454186 (d931d98)",
+   "notes": [
+    "Card packs: see the packs, the Party Pass and what is coming",
+    "Clearer text on the purple background",
+    "Online: the host can throw for a team that has left rock, paper, scissors",
+    "Frame graphs in Settings, to check the game runs smoothly"
+   ]
+  },
+  {
+   "version": "453764",
+   "date": "2026-11-12",
+   "title": "Build 453764 (e342a3c)",
+   "notes": [
+    "Comfort settings: reduce motion, high contrast, bigger text",
+    "Bigger buttons and better screen-reader support",
+    "Online: the host can skip a player who has dropped out; phones reconnect after a blip",
+    "Share your Daily stars and party wins; challenge a friend to crack a card"
+   ]
+  },
+  {
+   "version": "453537",
+   "date": "2026-11-11",
+   "title": "Build 453537 (6594e14)",
+   "notes": [
+    "Play apart, turn length, online topics, Play again, Rejoin game, success buzz"
+   ]
+  },
+  {
+   "version": "453342",
+   "date": "2026-11-11",
+   "title": "Build 453342 (7541911)",
+   "notes": [
+    "Online games: host a game and friends join from their phones or the web. Choose topics, each with its own card colour. 450 cards, 50 per topic, including a very cheeky Mature 18+ set. Card corners tidied up."
+   ]
+  },
+  {
+   "version": "452943",
+   "date": "2026-11-11",
+   "title": "Build 452943 (625a993)",
+   "notes": [
+    "First release through the in-app updater. Includes the web version work, the rock-paper-scissors knockout for 3+ teams, 10 new cards (55 in all) and the build time in Settings › About."
+   ]
+  }
+ ]
+}

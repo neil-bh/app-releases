@@ -1,0 +1,43 @@
+{
+ "app": "cc-companion",
+ "entries": [
+  {
+   "version": "0.4.0",
+   "date": "2026-11-17",
+   "title": "Now CC Companion, Claude Control on your Android phone",
+   "notes": [
+    "Renamed Claude Control Companion (CC Companion where space is short): it is now the general Android app, not just the car's.",
+    "New icon: the board's mark with a phone badge, the same everywhere, the car included.",
+    "Installs over 0.3.0 and keeps your board link and settings."
+   ]
+  },
+  {
+   "version": "0.3.0",
+   "date": "2026-11-17",
+   "title": "Usage on your phone",
+   "notes": [
+    "An optional notification shows your 5-hour and weekly usage, with when they reset and who is waiting.",
+    "Optional alerts at 70% and 90%, once per limit window.",
+    "Two home-screen widgets with the usage rings; the last numbers stay, greyed, when the board cannot be reached."
+   ]
+  },
+  {
+   "version": "0.2.0",
+   "date": "2026-11-17",
+   "title": "Linked to Claude Control",
+   "notes": [
+    "Renamed Claude Control Car Companion, with the board's own mark as its icon.",
+    "Links to your board from a setup link, says when an update is waiting and downloads it from the board."
+   ]
+  },
+  {
+   "version": "0.1.0",
+   "date": "2026-11-17",
+   "title": "Claude Control in Android Auto",
+   "notes": [
+    "See your sessions on the car's screen, hear the latest reply and answer a question by voice.",
+    "Approve a waiting session from the car, with a check that the question has not changed."
+   ]
+  }
+ ]
+}

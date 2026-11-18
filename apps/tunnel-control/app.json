@@ -1,0 +1,9 @@
+{
+ "id": "tunnel-control",
+ "name": "Tunnel Control",
+ "platform": "Windows 10/11 (64-bit)",
+ "ext": "exe",
+ "asset_name": "TunnelControl",
+ "min_os": "Windows 10",
+ "summary": "Keeps the SSH forwards from a Windows PC to the Dell up (Rojo, Studio MCP and friends), from the notification area."
+}

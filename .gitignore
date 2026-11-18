@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+# binaries are GitHub Release assets, never committed
+*.apk
+*.exe
+*.msi
+*.aab

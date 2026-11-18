@@ -1,0 +1,10 @@
+{
+ "id": "family-game-night",
+ "name": "Family Game Night",
+ "platform": "Android (arm64)",
+ "ext": "apk",
+ "asset_name": "family-game-night",
+ "tag": "family-game-night-b{version}",
+ "asset": "family-game-night-b{version}.apk",
+ "summary": "A party phrase game for the family: test builds for Android."
+}

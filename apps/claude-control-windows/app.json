@@ -1,0 +1,9 @@
+{
+ "id": "claude-control-windows",
+ "name": "Claude Control for Windows",
+ "platform": "Windows 10/11 (64-bit)",
+ "ext": "exe",
+ "asset_name": "ClaudeControl",
+ "min_os": "Windows 10",
+ "summary": "The Claude Control board in a window of its own, with your Claude usage in the Windows notification area."
+}

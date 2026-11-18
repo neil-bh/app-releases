@@ -1,0 +1,9 @@
+{
+ "id": "rbv-control",
+ "name": "RBV Control",
+ "platform": "Windows 10/11 (64-bit)",
+ "ext": "exe",
+ "asset_name": "RBVControl",
+ "min_os": "Windows 10",
+ "summary": "Remote Browser View: lets Claude on the Dell see and drive a browser on the laptop, with the owner's permission."
+}

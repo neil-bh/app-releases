@@ -1,0 +1,114 @@
+{
+ "app": "rbv-control",
+ "entries": [
+  {
+   "version": "1.3.0",
+   "date": "2026-11-18",
+   "title": "Old copies cleaned up, shows as installed",
+   "notes": [
+    "Removes leftovers of earlier installs each time it starts: old downloaded or unzipped copies in Downloads and on the Desktop, RBV Browser.bat, old shortcuts, and a startup entry pointing at an old copy. Each one is listed in Advanced › Logs.",
+    "Your browser logins and settings are never touched.",
+    "Tells Claude Control it is installed, so the Apps menu shows it with its version."
+   ]
+  },
+  {
+   "version": "1.2.0",
+   "date": "2026-11-18",
+   "title": "Installed like any Windows app",
+   "notes": [
+    "Listed in Settings › Apps as RBV Control by One Development, with the version that is running.",
+    "The Start menu entry is now in a One Development folder.",
+    "Uninstall from Settings › Apps removes it cleanly; your settings and browser logins are kept."
+   ]
+  },
+  {
+   "version": "1.1.0",
+   "date": "2026-11-16",
+   "title": "Claude can read web pages on its own (server only)",
+   "notes": [
+    "Claude can read a web page's text with a real browser on the server, without your laptop. It never tries to get past a site's bot or login wall.",
+    "Nothing changed in the app itself, so there was no app update for this version."
+   ]
+  },
+  {
+   "version": "1.0.0",
+   "date": "2026-11-14",
+   "title": "The first major release",
+   "notes": [
+    "0.13.0 as you accepted it on Windows, released as 1.0.0."
+   ]
+  },
+  {
+   "version": "0.13.0",
+   "date": "2026-11-14",
+   "title": "Restore brings the browser back",
+   "notes": [
+    "Restoring the docked panel from the taskbar brings the browser back and docks to it again.",
+    "The Connection page shows the link as three stations on one rail that light up when connected.",
+    "The app says \"the server\" everywhere it used to say \"the Dell\"."
+   ]
+  },
+  {
+   "version": "0.12.0",
+   "date": "2026-11-14",
+   "title": "X quits, minimise together",
+   "notes": [
+    "The window's X quits the app, after asking.",
+    "Docked: minimising the panel or the browser minimises both.",
+    "Dropdowns are readable in dark mode, and the live view can be closed."
+   ]
+  },
+  {
+   "version": "0.11.0",
+   "date": "2026-11-14",
+   "title": "One install, updates from the server",
+   "notes": [
+    "The app installs itself to one place, so Windows keeps your taskbar and tray choices across versions.",
+    "Updates come from the server with the Update button. No more downloading zips."
+   ]
+  },
+  {
+   "version": "0.10.0",
+   "date": "2026-11-14",
+   "title": "Hide the browser, live view",
+   "notes": [
+    "Hide browser takes the browser off screen while the app shows a live view of it.",
+    "Quitting the app closes the RBV Browser too."
+   ]
+  },
+  {
+   "version": "0.9.0",
+   "date": "2026-11-14",
+   "title": "Opens docked",
+   "notes": [
+    "The app opens as a slim panel beside the browser, and every page fits that width.",
+    "Home shows a live view of the browser."
+   ]
+  },
+  {
+   "version": "0.8.0",
+   "date": "2026-11-14",
+   "title": "Dock beside the browser",
+   "notes": [
+    "The panel can dock to the side of the browser and follow it.",
+    "The emblem on Home shows when the link is up and when data is moving."
+   ]
+  },
+  {
+   "version": "0.7.0",
+   "date": "2026-11-14",
+   "title": "The browser journey",
+   "notes": [
+    "A record of what happened in the RBV Browser (tabs, sites, sign-ins, downloads) and whether you or Claude did it."
+   ]
+  },
+  {
+   "version": "0.6.0",
+   "date": "2026-11-14",
+   "title": "RBV Control with a permission gate",
+   "notes": [
+    "RBV Control asks you before Claude can use your browser: Off, Ask first, or Always."
+   ]
+  }
+ ]
+}

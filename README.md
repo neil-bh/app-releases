@@ -1,11 +1,21 @@
 # app-releases
 
-Public downloads for test builds of private projects. Built apps only (APKs and similar), never source code.
+Public downloads for test builds of private projects. Built apps only (APKs, Windows programs and similar), never source code.
 
-Each app's releases share a tag prefix, so one repo can serve several apps:
+Each app has a folder, `apps/<app-id>/`, with its README (what it is, how to install and update it), its
+`CHANGELOG.json` and, once something is published, `latest.json`, which the app itself reads to update. The files
+are GitHub Release assets of this repo; nothing binary is committed. How apps check and how a release is published:
+[docs/RELEASES.md](docs/RELEASES.md).
 
-| Tag prefix | App |
-|---|---|
-| `family-game-night-b<build>` | Party phrase game (Android test builds) |
+<!-- index:start (tools/publish writes this table) -->
+| App | Platform | Latest | Details |
+|---|---|---|---|
+| CC Companion | Android 10+ | not published yet | [apps/cc-companion](apps/cc-companion/README.md) |
+| Claude Control for Windows | Windows 10/11 (64-bit) | not published yet | [apps/claude-control-windows](apps/claude-control-windows/README.md) |
+| Family Game Night | Android (arm64) | [454186](https://github.com/neil-bh/app-releases/releases/download/family-game-night-b454186/family-game-night-b454186.apk) (2026-11-12) | [apps/family-game-night](apps/family-game-night/README.md) |
+| RBV Control | Windows 10/11 (64-bit) | not published yet | [apps/rbv-control](apps/rbv-control/README.md) |
+| Tunnel Control | Windows 10/11 (64-bit) | not published yet | [apps/tunnel-control](apps/tunnel-control/README.md) |
+<!-- index:end -->
 
-Apps check this repo for a newer release and offer it in-app. The build number is minutes since 2026-01-01 UTC, so it always increases.
+Publishing: `tools/publish <app-id> <version> <file> --changelog <the app's CHANGELOG.json> --notes-from-changelog`
+(`--dry-run` first). `tools/check` validates every app folder; `tools/test` tests both.

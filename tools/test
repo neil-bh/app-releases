@@ -1,0 +1,280 @@
+#!/usr/bin/env python3
+"""test: tools/publish and tools/check, end to end, offline. Each test runs in a scratch copy of this repo with its own
+bare "origin" and a fake `gh` first on PATH (it records what it was asked and keeps releases in a folder), so nothing
+here reaches GitHub or touches this checkout. Exit 0 when every test passes."""
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+
+HERE = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+FAKE_GH = r'''#!/usr/bin/env python3
+import json, os, shutil, sys
+state = os.environ["FAKE_GH_STATE"]
+os.makedirs(state, exist_ok=True)
+with open(os.path.join(state, "calls.log"), "a") as f:
+    f.write(json.dumps(sys.argv[1:]) + "\n")
+a = sys.argv[1:]
+if a[:2] == ["release", "view"]:
+    d = os.path.join(state, a[2])
+    if not os.path.isdir(d):
+        print("release not found", file=sys.stderr); sys.exit(1)
+    if os.environ.get("FAKE_GH_DROP_ASSET"):
+        print(json.dumps({"assets": [], "tagName": a[2]})); sys.exit(0)
+    print(json.dumps({"tagName": a[2], "assets": [{"name": n, "size": os.path.getsize(os.path.join(d, n))} for n in os.listdir(d)]}))
+    sys.exit(0)
+if a[:2] == ["release", "create"]:
+    d = os.path.join(state, a[2]); os.makedirs(d)
+    shutil.copy(a[3], d)
+    sys.exit(0)
+print("fake gh: unexpected " + " ".join(a), file=sys.stderr); sys.exit(2)
+'''
+
+
+def sh(*cmd, cwd=None, env=None, check=True):
+    r = subprocess.run(cmd, cwd=cwd, env=env, capture_output=True, text=True)
+    if check and r.returncode:
+        raise AssertionError(f"{cmd} failed: {r.stdout}{r.stderr}")
+    return r
+
+
+class Repo:
+    """A scratch copy of the repo (working tree as it is now), committed, with a bare origin and a fake gh."""
+
+    def __init__(self):
+        self.tmp = tempfile.mkdtemp(prefix="app-releases-test-")
+        self.root = os.path.join(self.tmp, "repo")
+        shutil.copytree(HERE, self.root, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+        self.origin = os.path.join(self.tmp, "origin.git")
+        sh("git", "init", "-q", "--bare", "-b", "main", self.origin)
+        for c in (["init", "-q", "-b", "main"], ["config", "user.email", "t@example.invalid"], ["config", "user.name", "t"],
+                  ["config", "commit.gpgsign", "false"], ["add", "-A"], ["commit", "-q", "-m", "base"],
+                  ["remote", "add", "origin", self.origin], ["push", "-q", "origin", "main"]):
+            sh("git", *c, cwd=self.root)
+        bin_ = os.path.join(self.tmp, "bin")
+        os.makedirs(bin_)
+        with open(os.path.join(bin_, "gh"), "w") as f:
+            f.write(FAKE_GH)
+        os.chmod(os.path.join(bin_, "gh"), 0o755)
+        self.state = os.path.join(self.tmp, "gh-state")
+        self.env = dict(os.environ, PATH=bin_ + os.pathsep + os.environ["PATH"], FAKE_GH_STATE=self.state,
+                        GIT_AUTHOR_NAME="t", GIT_AUTHOR_EMAIL="t@example.invalid",
+                        GIT_COMMITTER_NAME="t", GIT_COMMITTER_EMAIL="t@example.invalid")
+        self.env.pop("APP_RELEASES_ROOT", None)
+        self.env.pop("APP_RELEASES_REPO", None)
+
+    def file(self, name, data):
+        p = os.path.join(self.tmp, name)
+        with open(p, "wb") as f:
+            f.write(data)
+        return p
+
+    def changelog(self, app, versions):
+        p = os.path.join(self.tmp, f"cl-{app}.json")
+        with open(p, "w") as f:
+            json.dump({"app": "anything", "entries": [{"version": v, "date": "2026-11-18", "title": f"Title {v}",
+                                                        "notes": [f"note {v}"]} for v in versions]}, f)
+        return p
+
+    def run(self, tool, *args, **kw):
+        return sh(os.path.join(self.root, "tools", tool), *args, env=dict(self.env, **kw), check=False)
+
+    def calls(self):
+        try:
+            with open(os.path.join(self.state, "calls.log")) as f:
+                return [json.loads(x) for x in f]
+        except OSError:
+            return []
+
+    def json(self, rel):
+        with open(os.path.join(self.root, rel)) as f:
+            return json.load(f)
+
+    def head(self):
+        return sh("git", "rev-parse", "HEAD", cwd=self.root).stdout.strip()
+
+    def close(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+
+EXE = b"MZ" + b"\x00" * 62 + b"This program cannot be run in DOS mode. plain build bytes " * 50
+
+
+class Publish(unittest.TestCase):
+    def setUp(self):
+        self.r = Repo()
+
+    def tearDown(self):
+        self.r.close()
+
+    def test_dry_run_changes_nothing(self):
+        r = self.r
+        before = r.head()
+        p = r.run("publish", "claude-control-windows", "9.0.0", r.file("x.exe", EXE),
+                  "--changelog", r.changelog("w", ["9.0.0", "1.0.0"]), "--notes-from-changelog", "--dry-run")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertIn("DRY RUN", p.stdout)
+        self.assertIn("claude-control-windows-v9.0.0", p.stdout)
+        self.assertIn("ClaudeControl-9.0.0.exe", p.stdout)
+        self.assertIn("would commit", p.stdout)
+        self.assertEqual(r.calls(), [])
+        self.assertEqual(r.head(), before)
+        self.assertEqual(sh("git", "status", "--porcelain", cwd=r.root).stdout, "")
+        self.assertFalse(os.path.exists(os.path.join(r.root, "apps/claude-control-windows/latest.json")))
+
+    def test_publish_writes_commits_and_pushes(self):
+        r = self.r
+        data = EXE
+        p = r.run("publish", "claude-control-windows", "9.0.0", r.file("x.exe", data),
+                  "--changelog", r.changelog("w", ["9.0.0", "1.0.0"]), "--notes-from-changelog")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        creates = [c for c in r.calls() if c[:2] == ["release", "create"]]
+        self.assertEqual(len(creates), 1)
+        c = creates[0]
+        self.assertEqual(c[2], "claude-control-windows-v9.0.0")
+        self.assertEqual(os.path.basename(c[3]), "ClaudeControl-9.0.0.exe")
+        self.assertIn("--latest=false", c)
+        self.assertEqual(c[c.index("--repo") + 1], "neil-bh/app-releases")
+        l = r.json("apps/claude-control-windows/latest.json")
+        import hashlib
+        self.assertEqual(l["sha256"], hashlib.sha256(data).hexdigest())
+        self.assertEqual(l["size"], len(data))
+        self.assertEqual(l["url"], "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v9.0.0/ClaudeControl-9.0.0.exe")
+        self.assertEqual(l["notes_title"], "Title 9.0.0")
+        self.assertEqual(r.json("apps/claude-control-windows/CHANGELOG.json")["app"], "claude-control-windows")
+        with open(os.path.join(r.root, "README.md")) as f:
+            self.assertIn("[9.0.0](https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v9.0.0/", f.read())
+        with open(os.path.join(r.root, "apps/claude-control-windows/README.md")) as f:
+            self.assertIn("Claude Control for Windows 9.0.0", f.read())
+        # committed and pushed: origin has it, the tree is clean, and tools/check passes on the result
+        self.assertEqual(sh("git", "rev-parse", "main", cwd=r.origin).stdout.strip(), r.head())
+        self.assertEqual(sh("git", "status", "--porcelain", cwd=r.root).stdout, "")
+        chk = r.run("check")
+        self.assertEqual(chk.returncode, 0, chk.stdout)
+        # the same version again is refused (the tag exists)
+        p2 = r.run("publish", "claude-control-windows", "9.0.0", r.file("x.exe", data),
+                   "--changelog", r.changelog("w", ["9.0.0", "1.0.0"]))
+        self.assertNotEqual(p2.returncode, 0)
+        self.assertIn("already exists", p2.stderr)
+
+    def test_refuses_changelog_mismatch(self):
+        r = self.r
+        p = r.run("publish", "tunnel-control", "2.0.0", r.file("t.exe", EXE), "--changelog", r.changelog("t", ["1.9.0"]))
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("newest entry is 1.9.0, not 2.0.0", p.stderr)
+        self.assertEqual(r.calls(), [])
+
+    def test_refuses_secret_and_never_prints_it(self):
+        r = self.r
+        secret = "ghp_" + "Ab1" * 12
+        key = "-----BEGIN OPENSSH PRIVATE KEY-----"
+        aws = "AKIA" + "Q" * 16
+        data = EXE + b"\x00" + secret.encode() + b"\x00" + key.encode() + b"\x00" + aws.encode("utf-16-le") + b"\x00"
+        p = r.run("publish", "rbv-control", "9.0.0", r.file("r.exe", data), "--changelog", r.changelog("r", ["9.0.0"]))
+        self.assertNotEqual(p.returncode, 0)
+        out = p.stdout + p.stderr
+        for name in ("github_token", "private_key", "aws_access_key"):
+            self.assertIn(name, out)
+        self.assertNotIn(secret, out)
+        self.assertNotIn(aws, out)
+        self.assertNotIn("Ab1Ab1", out)
+        self.assertEqual(r.calls(), [])
+
+    def test_secret_inside_apk_member(self):
+        import io
+        import zipfile
+        r = self.r
+        buf = io.BytesIO()
+        with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+            z.writestr("classes.dex", b"dex\n" + b"config password=Hunter2Hunter2 end")
+        p = r.run("publish", "cc-companion", "9.0.0", r.file("c.apk", buf.getvalue()), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("password_assignment at offset classes.dex:", p.stdout)
+        self.assertNotIn("Hunter2", p.stdout + p.stderr)
+
+    def test_wrong_kind_of_file(self):
+        r = self.r
+        p = r.run("publish", "cc-companion", "9.0.0", r.file("c.exe", EXE), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("not a .apk file", p.stderr)
+
+    def test_unknown_app(self):
+        p = self.r.run("publish", "nope", "1.0.0", self.r.file("n.exe", EXE), "--dry-run")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("no app 'nope'", p.stderr)
+
+    def test_asset_missing_after_create_commits_nothing(self):
+        r = self.r
+        before = r.head()
+        p = r.run("publish", "tunnel-control", "9.0.0", r.file("t.exe", EXE), "--changelog", r.changelog("t", ["9.0.0"]),
+                  FAKE_GH_DROP_ASSET="1")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("Nothing was committed", p.stderr)
+        self.assertEqual(r.head(), before)
+        self.assertFalse(os.path.exists(os.path.join(r.root, "apps/tunnel-control/latest.json")))
+
+    def test_fgn_keeps_its_own_tag_scheme(self):
+        r = self.r
+        cl = r.changelog("f", ["999999", "454186"])
+        p = r.run("publish", "family-game-night", "999999", r.file("f.apk", b"PK\x05\x06" + b"\x00" * 18), "--changelog", cl, "--dry-run")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertIn("tag family-game-night-b999999, asset family-game-night-b999999.apk", p.stdout)
+
+
+class Check(unittest.TestCase):
+    def setUp(self):
+        self.r = Repo()
+
+    def tearDown(self):
+        self.r.close()
+
+    def test_repo_as_committed_passes(self):
+        p = self.r.run("check")
+        self.assertEqual(p.returncode, 0, p.stdout)
+
+    def edit(self, rel, fn):
+        p = os.path.join(self.r.root, rel)
+        with open(p) as f:
+            d = json.load(f)
+        fn(d)
+        with open(p, "w") as f:
+            json.dump(d, f)
+
+    def test_latest_not_newest_changelog(self):
+        self.edit("apps/family-game-night/latest.json", lambda d: d.update(version="1"))
+        p = self.r.run("check", "family-game-night")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("not the newest CHANGELOG entry", p.stdout)
+
+    def test_bad_url(self):
+        self.edit("apps/family-game-night/latest.json", lambda d: d.update(url="https://example.com/x.apk"))
+        p = self.r.run("check", "family-game-night")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("url must be https://github.com/", p.stdout)
+
+    def test_changelog_order_and_fields(self):
+        self.edit("apps/rbv-control/CHANGELOG.json", lambda d: d["entries"].reverse())
+        p = self.r.run("check", "rbv-control")
+        self.assertIn("newest first", p.stdout)
+        self.edit("apps/rbv-control/CHANGELOG.json", lambda d: (d["entries"].reverse(), d["entries"][0].update(date="18 Nov")))
+        p = self.r.run("check", "rbv-control")
+        self.assertIn("date must be YYYY-MM-DD", p.stdout)
+
+    def test_binary_committed(self):
+        with open(os.path.join(self.r.root, "apps/rbv-control/RBVControl.exe"), "wb") as f:
+            f.write(EXE)
+        p = self.r.run("check", "rbv-control")
+        self.assertIn("binaries are release assets", p.stdout)
+
+    def test_stale_index(self):
+        self.edit("apps/family-game-night/latest.json", lambda d: d.update(date="2026-11-13"))
+        p = self.r.run("check")
+        self.assertIn("README.md index is out of date", p.stdout)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=1)

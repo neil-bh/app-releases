@@ -1,0 +1,101 @@
+{
+ "app": "tunnel-control",
+ "entries": [
+  {
+   "version": "1.7.1",
+   "date": "2026-11-18",
+   "title": "Tidies up after older versions",
+   "notes": [
+    "Removes what older versions left behind: old copies in your bin folder, the downloaded installer, old data folders and old start-up entries.",
+    "Shortcuts that pointed at an old copy now open the installed one.",
+    "Tells Claude Control it is installed, so the board menu shows its version."
+   ]
+  },
+  {
+   "version": "1.7.0",
+   "date": "2026-11-18",
+   "title": "Installs like a normal Windows app",
+   "notes": [
+    "Moves itself to your Programs folder and appears in Settings › Apps › Installed apps, with an Uninstall button.",
+    "Adds a Start menu entry under One Development.",
+    "New Tools › Start with Windows; it replaces the old logon task, which had stopped working."
+   ]
+  },
+  {
+   "version": "1.6.0",
+   "date": "2026-11-17",
+   "title": "New look",
+   "notes": [
+    "New colours and styling, with an overview strip and a two-minute traffic chart.",
+    "Animations show real traffic and health checks on each tunnel."
+   ]
+  },
+  {
+   "version": "1.5.1",
+   "date": "2026-11-17",
+   "title": "First update through the updater",
+   "notes": [
+    "A small release to prove the built-in updater works from start to finish."
+   ]
+  },
+  {
+   "version": "1.5.0",
+   "date": "2026-11-17",
+   "title": "Built-in updater",
+   "notes": [
+    "Checks for new versions and installs one when you click Update, then restarts itself into it.",
+    "If a new version will not start it goes back to the previous one by itself; Help › Roll back does it by hand."
+   ]
+  },
+  {
+   "version": "1.4.2",
+   "date": "2026-11-17",
+   "title": "Tidier tunnel tables",
+   "notes": [
+    "The tunnel tables' columns now line up.",
+    "Shorter About text."
+   ]
+  },
+  {
+   "version": "1.4.0",
+   "date": "2026-11-17",
+   "title": "Renamed to Tunnel Control",
+   "notes": [
+    "Rojo Tunnel Monitor is now Tunnel Control. Your tunnels and settings came across."
+   ]
+  },
+  {
+   "version": "1.3.6",
+   "date": "2026-11-09",
+   "title": "Avatar Showroom tunnel",
+   "notes": [
+    "Adds the Avatar Showroom stage's port to the starting tunnel list."
+   ]
+  },
+  {
+   "version": "1.3.5",
+   "date": "2026-11-09",
+   "title": "Stage ports",
+   "notes": [
+    "Adds the lab's stage ports to the starting tunnel list."
+   ]
+  },
+  {
+   "version": "1.3.4",
+   "date": "2026-11-08",
+   "title": "Menus and Options",
+   "notes": [
+    "Proper Windows menus and an Options dialog.",
+    "Choose what closing and minimising do (hide to the tray or not)."
+   ]
+  },
+  {
+   "version": "1.2.2",
+   "date": "2026-11-07",
+   "title": "Groups and connection tests",
+   "notes": [
+    "Tunnels in groups, traffic counters, a Test connection button and the tray icon."
+   ]
+  }
+ ]
+}

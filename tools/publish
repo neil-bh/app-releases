@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+"""publish: put one build of one app on GitHub Releases and record it in apps/<id>/ (docs/RELEASES.md).
+
+  tools/publish <app-id> <version> <file> [--changelog PATH] [--notes-from-changelog] [--dry-run]
+
+Refuses, before anything leaves the machine, when:
+  - the changelog's newest entry is not <version> (--changelog: the app's own CHANGELOG.json, copied here with its app
+    renamed to <app-id>; without it, apps/<id>/CHANGELOG.json must already have the entry),
+  - the file is not the app's kind (app.json "ext"), is empty or larger than 500 MB,
+  - the file holds a secret-shaped string (private keys, GitHub/Tailscale/Anthropic/OpenAI/AWS/Slack/Google tokens,
+    JWTs, bearer tokens, password=...). Only the pattern's NAME and offset are printed, never what matched,
+  - the release tag already exists, or the files this writes have uncommitted changes.
+Then, in this order (so latest.json never names an asset that is not there):
+  1. gh release create <tag> with the file named <asset> (app.json templates; default <id>-v<version> and
+     <asset_name>-<version>.<ext>), not marked as the repo's Latest (the repo is shared by several apps),
+  2. reads the release back and checks the asset's name and size,
+  3. writes apps/<id>/latest.json, CHANGELOG.json, the README's Latest line and the root README's index,
+  4. commits those paths (by name) and pushes to main.
+--dry-run does every check and prints the commands and the files it would write; it creates no release, writes
+nothing in the repo, commits nothing and pushes nothing. APP_RELEASES_REPO overrides the GitHub repo (tests).
+"""
+import argparse
+import os
+import shutil
+import sys
+import tempfile
+
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
+import applib as L  # noqa: E402
+
+
+def say(msg):
+    print(msg, flush=True)
+
+
+def git(*args, check=True):
+    r = L.run(["git", "-C", L.ROOT, *args])
+    if check and r.returncode:
+        raise L.Problem(f"git {' '.join(args)} failed: {(r.stderr or r.stdout).strip()}")
+    return r
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("app")
+    ap.add_argument("version")
+    ap.add_argument("file")
+    ap.add_argument("--changelog", help="the app's own CHANGELOG.json (copied in, newest entry must be <version>)")
+    ap.add_argument("--notes-from-changelog", action="store_true",
+                    help="the release's notes are the entry's title and notes (default: its title only)")
+    ap.add_argument("--dry-run", action="store_true")
+    a = ap.parse_args(argv)
+    try:
+        return publish(a)
+    except L.Problem as e:
+        print(f"publish: {e}", file=sys.stderr)
+        return 1
+
+
+def publish(a):
+    dry = a.dry_run
+    app = L.load_app(a.app)
+    version = a.version
+    if not L.VER_RE.fullmatch(version):
+        raise L.Problem(f"version {version!r} is not numbers and dots")
+    d = L.app_dir(app["id"])
+
+    # the changelog: its newest entry is this version
+    src = a.changelog or os.path.join(d, "CHANGELOG.json")
+    try:
+        cl = L.read_json(src)
+    except (OSError, ValueError) as e:
+        raise L.Problem(f"cannot read the changelog {src}: {e}")
+    cl = L.normalise_changelog(cl, app["id"])
+    errs = L.check_changelog(cl, app["id"])
+    if errs:
+        raise L.Problem(f"the changelog {src} is not right: " + "; ".join(errs[:5]))
+    newest = cl["entries"][0] if cl["entries"] else None
+    if not newest or newest["version"] != version:
+        raise L.Problem(f"the changelog's newest entry is {newest['version'] if newest else 'missing'}, not {version}: "
+                        "add an entry for this version first")
+
+    # the file
+    try:
+        size = os.path.getsize(a.file)
+    except OSError as e:
+        raise L.Problem(f"cannot read {a.file}: {e}")
+    if not a.file.lower().endswith("." + app["ext"]):
+        raise L.Problem(f"{a.file} is not a .{app['ext']} file, which is what {app['name']} publishes")
+    if not 0 < size <= L.MAX_SIZE:
+        raise L.Problem(f"{a.file} is {size} bytes: empty, or larger than 500 MB")
+    hits = L.scan_file(a.file)
+    if hits:
+        say(f"publish: {a.file} holds {len(hits)} secret-shaped string(s); nothing was published:")
+        for name, off in hits[:40]:
+            say(f"  {name} at offset {off}")
+        raise L.Problem("refused: remove the secret(s) from the build (and rotate them) before publishing")
+    say(f"secret scan: clean ({len(L.SECRET_PATTERNS)} patterns, ASCII and UTF-16 strings"
+        + (", every zip member" if open(a.file, "rb").read(2) == b"PK" else "") + ")")
+    sha = L.sha256_file(a.file)
+
+    tag, asset = L.tag_for(app, version), L.asset_for(app, version)
+    url = L.url_for(tag, asset)
+    latest = {"app": app["id"], "version": version, "tag": tag, "asset": asset, "url": url, "sha256": sha, "size": size,
+              "date": newest["date"] if L.DATE_RE.fullmatch(newest["date"]) else L.today(), "notes_title": newest["title"]}
+    if app.get("min_os"):
+        latest["min_os"] = app["min_os"]
+    errs = L.check_latest(latest, app, cl)
+    if errs:
+        raise L.Problem("the record would not pass tools/check: " + "; ".join(errs))
+
+    rel = {p: os.path.join(L.ROOT, p) for p in (f"apps/{app['id']}/latest.json", f"apps/{app['id']}/CHANGELOG.json",
+                                                 f"apps/{app['id']}/README.md", "README.md")}
+    dirty = git("status", "--porcelain", "--", *rel).stdout.strip()
+    if dirty and not dry:
+        raise L.Problem("these files have uncommitted changes; commit or discard them first:\n" + dirty)
+    notes = L.notes_text(newest, a.notes_from_changelog)
+    title = f"{app['name']} {version}"
+
+    say(f"{'DRY RUN: ' if dry else ''}{app['name']} {version}")
+    say(f"  file     {a.file} ({size} bytes, {size / 1048576:.1f} MB)")
+    say(f"  sha256   {sha}")
+    say(f"  release  {L.REPO} tag {tag}, asset {asset}")
+    say(f"  url      {url}")
+    say(f"  notes    {notes.splitlines()[0]}" + (f" (+{len(notes.splitlines()) - 1} lines)" if len(notes.splitlines()) > 1 else ""))
+
+    tmp = tempfile.mkdtemp(prefix="app-releases-")
+    try:
+        staged = os.path.join(tmp, asset)
+        shutil.copyfile(a.file, staged)
+        if L.sha256_file(staged) != sha:
+            raise L.Problem("the file changed while it was being published")
+        nf = os.path.join(tmp, "notes.md")
+        with open(nf, "w", encoding="utf-8") as f:
+            f.write(notes + "\n")
+        create = ["gh", "release", "create", tag, staged, "--repo", L.REPO, "--title", title, "--notes-file", nf,
+                  "--target", L.BRANCH, "--latest=false"]
+        if dry:
+            say(f"  would run: gh release create {tag} <{asset}> --repo {L.REPO} --title {title!r} "
+                f"--notes-file <notes> --target {L.BRANCH} --latest=false")
+        else:
+            if not L.have("gh"):
+                raise L.Problem("gh is not installed")
+            if git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip() != L.BRANCH:
+                raise L.Problem(f"publish from the {L.BRANCH} branch")
+            git("pull", "--ff-only", "--quiet", "origin", L.BRANCH)
+            if L.run(["gh", "release", "view", tag, "--repo", L.REPO, "--json", "tagName"]).returncode == 0:
+                raise L.Problem(f"the release {tag} already exists in {L.REPO}; versions are never re-published")
+            r = L.run(create)
+            if r.returncode:
+                raise L.Problem(f"gh release create failed: {(r.stderr or r.stdout).strip()}")
+            say(f"  created release {tag}")
+            check_uploaded(tag, asset, size)
+
+        # the records
+        new = {}
+        new[f"apps/{app['id']}/latest.json"] = latest
+        new[f"apps/{app['id']}/CHANGELOG.json"] = cl
+        with open(rel[f"apps/{app['id']}/README.md"], encoding="utf-8") as f:
+            new[f"apps/{app['id']}/README.md"] = L.app_readme(f.read(), app, latest)
+        if dry:
+            # the index as it would be: computed against a scratch copy of apps/ with the new latest.json in it
+            shadow = os.path.join(tmp, "shadow")
+            shutil.copytree(os.path.join(L.ROOT, "apps"), os.path.join(shadow, "apps"))
+            L.write_json(os.path.join(shadow, "apps", app["id"], "latest.json"), latest)
+            idx_root = shadow
+        else:
+            L.write_json(rel[f"apps/{app['id']}/latest.json"], latest)
+            idx_root = L.ROOT
+        with open(rel["README.md"], encoding="utf-8") as f:
+            new["README.md"] = L.root_readme(f.read(), idx_root)
+        for p, body in new.items():
+            if dry:
+                say(f"  would write {p}" + (f": {body.get('version')} {body.get('sha256', '')[:12]}…" if p.endswith("latest.json") else ""))
+                continue
+            if isinstance(body, dict):
+                L.write_json(rel[p], body)
+            else:
+                with open(rel[p], "w", encoding="utf-8") as f:
+                    f.write(body)
+        msg = f"{app['id']} {version}: {newest['title']}"
+        if dry:
+            say(f"  would commit ({', '.join(rel)}) as {msg!r} and push to origin {L.BRANCH}")
+            say("DRY RUN: nothing was created, written, committed or pushed")
+            return 0
+        git("add", "--", *rel)
+        git("commit", "-q", "-m", msg, "--", *rel)
+        r = git("push", "-q", "origin", f"HEAD:{L.BRANCH}", check=False)
+        if r.returncode:
+            raise L.Problem(f"the release exists and the record is committed, but the push failed: {r.stderr.strip()}; "
+                            "run `git push origin main` (apps check latest.json, so they see nothing until then)")
+        say(f"published {title}: {url}")
+        say(f"  apps see it at {L.raw_latest_url(app['id'])}")
+        return 0
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def check_uploaded(tag, asset, size):
+    import json
+    r = L.run(["gh", "release", "view", tag, "--repo", L.REPO, "--json", "assets"])
+    try:
+        got = {x.get("name"): x.get("size") for x in json.loads(r.stdout).get("assets", [])}
+    except ValueError:
+        got = {}
+    if got.get(asset) != size:
+        raise L.Problem(f"the release {tag} was created, but its asset {asset} is not there at {size} bytes "
+                        f"(found {got}); fix it on GitHub before anything points at it. Nothing was committed")
+    say(f"  checked: {asset} is on the release, {size} bytes")
+
+
+if __name__ == "__main__":
+    sys.exit(main())

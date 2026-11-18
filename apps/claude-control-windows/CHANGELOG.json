@@ -1,0 +1,42 @@
+{
+ "app": "claude-control-windows",
+ "entries": [
+  {
+   "version": "1.1.2",
+   "date": "2026-11-18",
+   "title": "Bigger, crisper tray numbers",
+   "notes": [
+    "The numbers in the tray icons fill their tiles and are sharper at every display scaling."
+   ]
+  },
+  {
+   "version": "1.1.1",
+   "date": "2026-11-18",
+   "title": "Tray numbers coloured by their value",
+   "notes": [
+    "Both tray tiles use one colour scale: green to 50%, amber around 70% and red from 90%.",
+    "The tooltip says which tile is the 5-hour limit and which is the weekly one."
+   ]
+  },
+  {
+   "version": "1.1.0",
+   "date": "2026-11-18",
+   "title": "Two usage numbers in the tray, and the old web app cleaned up",
+   "notes": [
+    "Two tray icons: your 5-hour and weekly usage, each with its own tooltip and reset time.",
+    "Uses the board's own icon, and tells the board which family apps are installed on this PC.",
+    "Removes the old Claude Control web-app installs and the old PowerShell tray, and never installs an older version over a newer one."
+   ]
+  },
+  {
+   "version": "1.0.0",
+   "date": "2026-11-18",
+   "title": "Claude Control for Windows",
+   "notes": [
+    "The board in a window of its own, with your usage in the notification area and Windows notifications when a session needs you.",
+    "Installs itself like a normal Windows app, starts with Windows if you want, and updates itself from the board.",
+    "Replaces the old PowerShell tray script, which it removes."
+   ]
+  }
+ ]
+}
