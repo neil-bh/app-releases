@@ -10,7 +10,7 @@ The Claude Control board in a window of its own, with your Claude usage in the W
 | For the app's updater | [latest.json](latest.json) (`https://raw.githubusercontent.com/neil-bh/app-releases/main/apps/claude-control-windows/latest.json`) |
 
 <!-- latest:start (tools/publish writes this line) -->
-**Latest:** nothing published here yet.
+**Latest:** [Claude Control for Windows 1.2.0](https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.2.0/ClaudeControl-1.2.0.exe) (2026-11-18, 13.3 MB, SHA-256 `479661027f3be703997cb17df1c66066249454e6fcb80f7fae3b02361516a01e`) · [all releases](https://github.com/neil-bh/app-releases/releases?q=claude-control-windows&expanded=true)
 <!-- latest:end -->
 
 **Install:** download the `.exe` from the latest release and run it once: it installs itself for your Windows user

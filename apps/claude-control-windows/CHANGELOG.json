@@ -2,6 +2,17 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.2.0",
+   "date": "2026-11-18",
+   "title": "Updates from GitHub; tray numbers stay coloured",
+   "notes": [
+    "Updates now come from app-releases on GitHub, so they arrive wherever the PC is, not only on the tailnet.",
+    "Each download's size and SHA-256 are checked before it replaces the app, as before.",
+    "When GitHub cannot be reached, it updates from the board on the Dell instead.",
+    "The tray numbers keep their colour when no Claude session has run for a while, or the board is out of reach; they used to turn grey. The tooltip says how old the figure is, and a limit whose reset time has passed shows 0%."
+   ]
+  },
+  {
    "version": "1.1.2",
    "date": "2026-11-18",
    "title": "Bigger, crisper tray numbers",
