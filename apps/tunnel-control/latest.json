@@ -1,0 +1,12 @@
+{
+ "app": "tunnel-control",
+ "version": "1.8.0",
+ "tag": "tunnel-control-v1.8.0",
+ "asset": "TunnelControl-1.8.0.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/tunnel-control-v1.8.0/TunnelControl-1.8.0.exe",
+ "sha256": "74f77eaa3757a44feb4e1df39c482fedcfa12f537c600ab88d309a10b1d4b52b",
+ "size": 13116928,
+ "date": "2026-11-18",
+ "notes_title": "Updates from GitHub",
+ "min_os": "Windows 10"
+}

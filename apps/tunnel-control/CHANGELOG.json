@@ -2,6 +2,17 @@
  "app": "tunnel-control",
  "entries": [
   {
+   "version": "1.8.0",
+   "date": "2026-11-18",
+   "title": "Updates from GitHub",
+   "notes": [
+    "Looks for new versions on the public releases page on GitHub first, and checks every download's size and fingerprint before installing it.",
+    "If GitHub cannot be reached it still updates from the Dell, as before.",
+    "The update message says where the new version came from.",
+    "An older download never replaces a newer install unless you run it with -force."
+   ]
+  },
+  {
    "version": "1.7.1",
    "date": "2026-11-18",
    "title": "Tidies up after older versions",
