@@ -2,6 +2,15 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.3.3",
+   "date": "2026-11-19",
+   "title": "Paste works in the terminal and Files",
+   "notes": [
+    "Paste from the clipboard now works in the terminal and Files.",
+    "The start-up screen no longer flashes inside the terminal."
+   ]
+  },
+  {
    "version": "1.3.2",
    "date": "2026-11-19",
    "title": "A simpler tray menu",
