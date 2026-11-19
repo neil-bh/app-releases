@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.4",
+   "date": "2026-11-19",
+   "title": "A redesigned Android Auto, and a tidier Settings and Apps",
+   "notes": [
+    "Android Auto: every session has its own robot, coloured by state, with a progress ring and time left while it works. The All tab is a grid. A session opens as one big picture with a single main action (Approve, Answer or Read aloud) and Ask about this.",
+    "Settings is one clean screen in short sections (Board, Alerts, Voice and car, Widgets, Display, Developer, About). The old web-app removal is gone.",
+    "Apps: one card per app with Latest and Current, a single Update button or 'You are on the latest version', and a Details link for the rest."
+   ]
+  },
+  {
    "version": "1.2.3",
    "date": "2026-11-19",
    "title": "Fixes the microphone in Android Auto",
