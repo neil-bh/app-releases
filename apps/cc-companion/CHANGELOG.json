@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.5",
+   "date": "2026-11-19",
+   "title": "Safer approvals in the car",
+   "notes": [
+    "Approve shows the real command and refuses risky ones, or any without a command, on the car (it says to approve on the phone).",
+    "Reply can no longer type into a permission prompt.",
+    "Tidier Settings status: update and board messages sit under their own buttons."
+   ]
+  },
+  {
    "version": "1.2.4",
    "date": "2026-11-19",
    "title": "A redesigned Android Auto, and a tidier Settings and Apps",

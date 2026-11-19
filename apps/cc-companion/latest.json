@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.2.4",
- "tag": "cc-companion-v1.2.4",
- "asset": "ClaudeControlCompanion-1.2.4.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.4/ClaudeControlCompanion-1.2.4.apk",
- "sha256": "0efed0b5af342d9372787f4fd83d7bf1618eb5eb4c5ce8b4851dca9eeacf058f",
- "size": 12230684,
+ "version": "1.2.5",
+ "tag": "cc-companion-v1.2.5",
+ "asset": "ClaudeControlCompanion-1.2.5.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.5/ClaudeControlCompanion-1.2.5.apk",
+ "sha256": "ac69459fe124bd27f958c18b0f9c7dc12b2d34164a961aa458e8877a32ee6adf",
+ "size": 12341110,
  "date": "2026-11-19",
- "notes_title": "A redesigned Android Auto, and a tidier Settings and Apps",
+ "notes_title": "Safer approvals in the car",
  "min_os": "Android 10"
 }
