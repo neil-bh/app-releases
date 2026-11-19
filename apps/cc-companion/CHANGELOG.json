@@ -2,6 +2,19 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.3.0",
+   "date": "2026-11-19",
+   "title": "A new look, and pictures that move",
+   "notes": [
+    "Each session is now a small robot: green with a turning ring while it works, red with a breathing ring when it needs you, grey and asleep when idle, crossed-out when the board is offline.",
+    "In the car the pictures move slowly (a ring turning, a blink, about one step a second or slower) and only while something is working or waiting. Settings has a switch to keep them still.",
+    "New tab icons in the car, a coral accent on its buttons, and group pictures for the idle and \"more\" tiles.",
+    "On the phone: the robot on the loading and offline screens and in the agents chip, real back and settings icons, counts that run to their new value, a download bar with a moving sheen, and one set of colours, shapes and text sizes throughout.",
+    "New app icon: the robot inside the Claude Control rays, on the phone, the car tile and themed icons.",
+    "Car approvals are unchanged."
+   ]
+  },
+  {
    "version": "1.2.10",
    "date": "2026-11-19",
    "title": "Tighter car approvals",
