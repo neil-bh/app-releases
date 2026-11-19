@@ -2,6 +2,18 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.3.1",
+   "date": "2026-11-19",
+   "title": "Calmer tray, a friendlier start-up, one toast for many",
+   "notes": [
+    "The tray icons carry a small dot: orange when a session waits on you, a hollow ring when the board cannot be reached; nothing when all is quiet. The tooltip says how many wait (and for how long, the oldest) and how many are working.",
+    "Several sessions needing you at once give one notification listing them, and every session or usage notification has an Open button. Set quiet_hours (start and end, such as 22:00 and 07:00) in settings.json to hold notifications back at night; the tray icon still shows them.",
+    "The start-up screen has a new three-dot animation, says it is connecting to your board, counts down to its next try (3 seconds growing to 30), and lists what usually fixes it. A calm loading veil covers the window while the board page loads.",
+    "The microphone is allowed for the board's Voice and Ask bar without a prompt each time; camera, location, notifications and clipboard reading are refused rather than asking again and again.",
+    "The window's place and size are saved shortly after you move or resize it, not only when you close it."
+   ]
+  },
+  {
    "version": "1.3.0",
    "date": "2026-11-19",
    "title": "Open Tunnel Control and RBV Control from the tray",
