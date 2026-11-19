@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.2.6",
- "tag": "cc-companion-v1.2.6",
- "asset": "ClaudeControlCompanion-1.2.6.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.6/ClaudeControlCompanion-1.2.6.apk",
- "sha256": "2bf3b2a22ea2c7ac6926481b1f420b20455f98716ec70fc0660625a99c634201",
- "size": 12252656,
+ "version": "1.2.7",
+ "tag": "cc-companion-v1.2.7",
+ "asset": "ClaudeControlCompanion-1.2.7.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.7/ClaudeControlCompanion-1.2.7.apk",
+ "sha256": "0f26f4bafd8a39603046fa390ae99c3869f4426ea30d3cea4a9553bf1b2eda6c",
+ "size": 12263860,
  "date": "2026-11-19",
- "notes_title": "Clearer car screens",
+ "notes_title": "Car approvals on a short safe list",
  "min_os": "Android 10"
 }

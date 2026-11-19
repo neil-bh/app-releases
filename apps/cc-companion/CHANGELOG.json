@@ -2,6 +2,18 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.7",
+   "date": "2026-11-19",
+   "title": "Car approvals on a short safe list",
+   "notes": [
+    "The car approves only simple read-only commands (git status, ls, running tests, touch in /tmp). Everything else, long or multi-line commands, and Edit or Write are approved on the phone.",
+    "After Approve the car goes back to the list, so nothing is covered or tapped twice.",
+    "A session that starts needing you is alerted on the car straight away, not after up to 15 minutes.",
+    "Working shows the task first, not just the tool; idle sessions fold into one tile on All.",
+    "Settings: no outlined switches, one main button per card, developer tools tucked away, alert speed moved to Alerts."
+   ]
+  },
+  {
    "version": "1.2.6",
    "date": "2026-11-19",
    "title": "Clearer car screens",
