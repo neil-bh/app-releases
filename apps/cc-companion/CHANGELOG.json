@@ -2,6 +2,33 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.3",
+   "date": "2026-11-19",
+   "title": "Fixes the microphone in Android Auto",
+   "notes": [
+    "Fixes the microphone in Android Auto: the car audio component was missing, so Talk to Claude Control showed a developer error. If the car mic is ever unavailable it now says so plainly and points to the phone."
+   ]
+  },
+  {
+   "version": "1.2.2",
+   "date": "2026-11-19",
+   "title": "Android Auto shows how long agents have left, and a finished Apps screen",
+   "notes": [
+    "Android Auto: working sessions show what they are doing in 40 characters and, when the session reports it, 'Step 3/5 · ~18 min left'; otherwise time in state.",
+    "Android Auto: when nothing needs you the first tab says 'All clear', how many are working and when the first finishes, with one tap to Working and one to Ask. Nothing bulk-approves.",
+    "Apps: each app has an icon tile, an N/A badge where it does not run, installed and latest versions, a download progress bar on Update, What's new that opens and closes smoothly, pull down to refresh and a quiet loading placeholder.",
+    "Headers on Settings and Apps settle in, and the agents chip pops when its count changes; all of it stays still when animations are off."
+   ]
+  },
+  {
+   "version": "1.2.1",
+   "date": "2026-11-19",
+   "title": "Family Game Night is no longer listed here",
+   "notes": [
+    "The Apps screen no longer lists Family Game Night; it now shows Claude Control and the Windows apps only."
+   ]
+  },
+  {
    "version": "1.2.0",
    "date": "2026-11-19",
    "title": "A bolder Android Auto, a tidier phone app, and an Apps screen",

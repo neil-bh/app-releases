@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.2.0",
- "tag": "cc-companion-v1.2.0",
- "asset": "ClaudeControlCompanion-1.2.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.0/ClaudeControlCompanion-1.2.0.apk",
- "sha256": "154005aca02e34d44fe883f9206f26933b9d7c5bccbcd2320f1051feb175e1dc",
- "size": 12474905,
+ "version": "1.2.3",
+ "tag": "cc-companion-v1.2.3",
+ "asset": "ClaudeControlCompanion-1.2.3.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.3/ClaudeControlCompanion-1.2.3.apk",
+ "sha256": "aebf82d177c5e3ae5d1c8f0a56f0f4097b50b3384db8e0c5bdcc76181483ad45",
+ "size": 12215804,
  "date": "2026-11-19",
- "notes_title": "A bolder Android Auto, a tidier phone app, and an Apps screen",
+ "notes_title": "Fixes the microphone in Android Auto",
  "min_os": "Android 10"
 }
