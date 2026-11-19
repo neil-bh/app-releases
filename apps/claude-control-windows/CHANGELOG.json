@@ -2,6 +2,18 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.3.0",
+   "date": "2026-11-19",
+   "title": "Open Tunnel Control and RBV Control from the tray",
+   "notes": [
+    "The tray menu is tidier: settings, board address and clean-up moved into a Settings submenu; the common actions stay on top.",
+    "The tray menu lists Tunnel Control and RBV Control when they are installed on this PC, shows when each is running, and opens it with one click. Apps that only exist on Android (CC Companion) are never offered here.",
+    "Sessions waiting on you appear in the tray menu, and clicking one (or its notification) opens that session's page.",
+    "The 5-hour tray icon pulses gently while a session is working, and is still when nothing is.",
+    "The start-up screen fades in, announces connection problems to screen readers, and respects Windows' reduced-motion setting."
+   ]
+  },
+  {
    "version": "1.2.1",
    "date": "2026-11-18",
    "title": "Tells the board which apps are running",
