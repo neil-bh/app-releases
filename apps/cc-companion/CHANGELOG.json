@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.8",
+   "date": "2026-11-19",
+   "title": "Version on the car screen",
+   "notes": [
+    "The installed version shows on the car's Ask tab.",
+    "Idle sessions fold into one tile that shows a session, not a list icon.",
+    "A finished task no longer shows as \"done\" on the Working tab."
+   ]
+  },
+  {
    "version": "1.2.7",
    "date": "2026-11-19",
    "title": "Car approvals on a short safe list",
