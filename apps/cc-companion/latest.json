@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "0.5.0",
- "tag": "cc-companion-v0.5.0",
- "asset": "ClaudeControlCompanion-0.5.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v0.5.0/ClaudeControlCompanion-0.5.0.apk",
- "sha256": "fb52092190f353faf487a0946cc6be487fac9caf1dc0c7f8457484dce88f92e9",
- "size": 11895160,
- "date": "2026-11-18",
- "notes_title": "Updates from GitHub, installed by the app",
+ "version": "1.2.0",
+ "tag": "cc-companion-v1.2.0",
+ "asset": "ClaudeControlCompanion-1.2.0.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.0/ClaudeControlCompanion-1.2.0.apk",
+ "sha256": "154005aca02e34d44fe883f9206f26933b9d7c5bccbcd2320f1051feb175e1dc",
+ "size": 12474905,
+ "date": "2026-11-19",
+ "notes_title": "A bolder Android Auto, a tidier phone app, and an Apps screen",
  "min_os": "Android 10"
 }

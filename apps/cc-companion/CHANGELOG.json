@@ -2,6 +2,44 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.0",
+   "date": "2026-11-19",
+   "title": "A bolder Android Auto, a tidier phone app, and an Apps screen",
+   "notes": [
+    "Android Auto opens on Needs you: tabs for Needs you, Working, All and Ask, with counts, how long each has waited, and one short line saying what it wants.",
+    "A session is now one glanceable pane: its state in words and colour, one line, a two-sentence summary of its last reply, and a big green Approve.",
+    "New in the car: Ask Claude Control. Say what you want (for example an ETA, or to commit a project) and get one short answer; it tells you plainly if your board cannot do that yet.",
+    "Offline in the car now keeps the last known list and says so on its first row.",
+    "A new Apps screen lists the Claude Control family from app-releases: Claude Control and Family Game Night install here; Windows-only apps say N/A.",
+    "A small 'N agents working' chip over the board, with a buzz when agents finish or one needs you.",
+    "Loading and offline screens with motion; the offline page retries by itself when the network returns; pull down from the top to reload.",
+    "Settings regrouped into Board, Alerts and usage, Android Auto, Widgets and Advanced, with a first-run 'Get started' card.",
+    "A session that needs you now also appears on the car screen as an alert that opens its pane.",
+    "Updates are found whichever name the Android app is published under in app-releases."
+   ]
+  },
+  {
+   "version": "1.1.0",
+   "date": "2026-11-18",
+   "title": "Updates that keep Android Auto, and alerts when a session needs you",
+   "notes": [
+    "When UnknownAuto is on your phone, Get the update installs through it, so Android Auto keeps showing Claude Control. Without it the app installs the update itself and says Android Auto may drop it.",
+    "New in Settings: Alert me when a session needs you. The board's web alerts cannot reach the app, so the app now tells you itself, and takes the alert back once it is answered.",
+    "In the car it is now called Claude Control, like everywhere else.",
+    "The board knows it is running inside the app: no more offers to install the web app there, and the menu has App settings."
+   ]
+  },
+  {
+   "version": "1.0.0",
+   "date": "2026-11-18",
+   "title": "Claude Control, a full Android app",
+   "notes": [
+    "The app now opens your board full screen: Claude Control itself, no longer a companion to the web app. Dictation, read-aloud, uploads and downloads work inside it.",
+    "Usage notification, widgets, updates and Android Auto are all still here; Settings is on the app icon's long-press menu.",
+    "Settings can remove the old Claude Control web app installed from Chrome. It installs over CC Companion and keeps your board link and settings."
+   ]
+  },
+  {
    "version": "0.5.0",
    "date": "2026-11-18",
    "title": "Updates from GitHub, installed by the app",
