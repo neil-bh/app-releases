@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.2.8",
- "tag": "cc-companion-v1.2.8",
- "asset": "ClaudeControlCompanion-1.2.8.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.8/ClaudeControlCompanion-1.2.8.apk",
- "sha256": "4b6a3d58bd9894ed64e9e9613b4ef23a1118097e03575b476a1d83804cca2508",
- "size": 12448718,
+ "version": "1.2.9",
+ "tag": "cc-companion-v1.2.9",
+ "asset": "ClaudeControlCompanion-1.2.9.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.9/ClaudeControlCompanion-1.2.9.apk",
+ "sha256": "acd665f296c8fe9778fe58f295297e6ea76460db5a1ef09f4fcad6e0ab5be74a",
+ "size": 12264548,
  "date": "2026-11-19",
- "notes_title": "Version on the car screen",
+ "notes_title": "Version visible on the car",
  "min_os": "Android 10"
 }
