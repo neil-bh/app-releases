@@ -10,7 +10,7 @@ Claude Control Companion: usage notification and widgets on an Android phone, an
 | For the app's updater | [latest.json](latest.json) (`https://raw.githubusercontent.com/neil-bh/app-releases/main/apps/cc-companion/latest.json`) |
 
 <!-- latest:start (tools/publish writes this line) -->
-**Latest:** [CC Companion 1.2.9](https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.9/ClaudeControlCompanion-1.2.9.apk) (2026-11-19, 11.7 MB, SHA-256 `acd665f296c8fe9778fe58f295297e6ea76460db5a1ef09f4fcad6e0ab5be74a`) · [all releases](https://github.com/neil-bh/app-releases/releases?q=cc-companion&expanded=true)
+**Latest:** [CC Companion 1.2.10](https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.2.10/ClaudeControlCompanion-1.2.10.apk) (2026-11-19, 11.7 MB, SHA-256 `8ae34386aa4f0518e271c4406a628526e848e84e322701cead4ac2c443ce59d1`) · [all releases](https://github.com/neil-bh/app-releases/releases?q=cc-companion&expanded=true)
 <!-- latest:end -->
 
 **Install:** on the Android phone, download the `.apk` from the latest release and open it (allow your browser to

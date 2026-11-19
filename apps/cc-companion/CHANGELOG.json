@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.2.10",
+   "date": "2026-11-19",
+   "title": "Tighter car approvals",
+   "notes": [
+    "The car now approves only a short list of read-only commands with fixed options; anything with other options, paths outside the project, or secrets goes to the phone.",
+    "The board refuses to show a command that contains a dashed line, so the car can't be shown a different command than the one that runs.",
+    "The Ask tab shows the app version in its title."
+   ]
+  },
+  {
    "version": "1.2.9",
    "date": "2026-11-19",
    "title": "Version visible on the car",
