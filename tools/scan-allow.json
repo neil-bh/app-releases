@@ -1,0 +1,8 @@
+{
+ "family-game-night": {
+  "google_api_key": [
+   {"sha256": "3a7d9eabea3fb84f58d8ea10219fe88105a24e242c2a9b574bbe2db49e466ad2",
+    "why": "The Firebase client API key in the app's own config: public by design, in every earlier APK. Neil allowed it on 2026-11-20. It must stay restricted to the app's package and signing SHA-1 in Firebase."}
+  ]
+ }
+}

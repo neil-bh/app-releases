@@ -89,7 +89,7 @@ def publish(a):
         raise L.Problem(f"{a.file} is not a .{app['ext']} file, which is what {app['name']} publishes")
     if not 0 < size <= L.MAX_SIZE:
         raise L.Problem(f"{a.file} is {size} bytes: empty, or larger than 500 MB")
-    hits = L.scan_file(a.file)
+    hits = L.scan_file(a.file, app['id'])
     if hits:
         say(f"publish: {a.file} holds {len(hits)} secret-shaped string(s); nothing was published:")
         for name, off in hits[:40]:

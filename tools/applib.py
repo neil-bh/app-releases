@@ -298,29 +298,48 @@ def _runs(data):
         yield m.start(), m.group()[::2]
 
 
-def scan_bytes(data, where=""):
+ALLOW_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scan-allow.json")
+
+
+def load_allow(app_id):
+    """{pattern name: {sha256 of an exact allowed match}} for one app, from tools/scan-allow.json. The file holds
+    only hashes: {app-id: {pattern: [{"sha256": ..., "why": ...}]}}. Nothing else is ever waved through."""
+    try:
+        doc = read_json(ALLOW_FILE)
+    except (OSError, ValueError):
+        return {}
+    out = {}
+    for name, items in (doc.get(app_id) or {}).items():
+        out[name] = {i["sha256"] for i in items if isinstance(i, dict) and SHA_RE.fullmatch(str(i.get("sha256", "")))}
+    return out
+
+
+def scan_bytes(data, where="", allow=None):
     hits = []
     for off, run in _runs(data):
         for name, rx in _COMPILED:
             for m in rx.finditer(run):
+                if allow and hashlib.sha256(m.group()).hexdigest() in allow.get(name, ()):
+                    continue
                 hits.append((name, f"{where}{off + m.start()}"))
     return hits
 
 
-def scan_file(path):
+def scan_file(path, app_id=None):
     """[(pattern name, offset)] for secret-shaped strings in a file. A zip (APK, JAR, ...) is also scanned member by
     member, decompressed, since its compressed bytes hide them. `strings` is what this does, in Python, so it needs
     nothing installed and the offsets are exact."""
     with open(path, "rb") as f:
         data = f.read()
-    hits = scan_bytes(data)
+    allow = load_allow(app_id) if app_id else None
+    hits = scan_bytes(data, allow=allow)
     if data[:2] == b"PK":
         try:
             with zipfile.ZipFile(path) as z:
                 for info in z.infolist():
                     if info.file_size > MAX_SIZE:
                         continue
-                    hits += scan_bytes(z.read(info), f"{info.filename}:")
+                    hits += scan_bytes(z.read(info), f"{info.filename}:", allow)
         except (zipfile.BadZipFile, OSError, RuntimeError, NotImplementedError):
             pass
     return hits

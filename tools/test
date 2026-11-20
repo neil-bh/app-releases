@@ -210,6 +210,23 @@ class Publish(unittest.TestCase):
         self.assertIn("password_assignment at offset classes.dex:", p.stdout)
         self.assertNotIn("Hunter2", p.stdout + p.stderr)
 
+    def test_allowlisted_key_only_for_its_own_app(self):
+        import hashlib
+        r = self.r
+        key = b"AIza" + b"Ab1_-" * 6 + b"Ab1_X"
+        with open(os.path.join(r.root, "tools/scan-allow.json"), "w") as f:
+            json.dump({"family-game-night": {"google_api_key": [{"sha256": hashlib.sha256(key).hexdigest(), "why": "t"}]}}, f)
+        apk = r.file("f.apk", b"PK\x05\x06" + b"\x00" * 18 + b"\x00" + key + b"\x00" + b"AIza" + b"Zy9_-" * 6 + b"Zy9_X")
+        p = r.run("publish", "family-game-night", "999999", apk, "--changelog", r.changelog("f", ["999999", "454186"]), "--dry-run")
+        self.assertNotEqual(p.returncode, 0)              # a second, different key still blocks
+        self.assertEqual(p.stdout.count("google_api_key at"), 1)
+        apk = r.file("g.apk", b"PK\x05\x06" + b"\x00" * 18 + b"\x00" + key + b"\x00")
+        p = r.run("publish", "family-game-night", "999999", apk, "--changelog", r.changelog("f", ["999999", "454186"]), "--dry-run")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)   # the allowed key alone passes
+        apk = r.file("c.apk", b"PK\x05\x06" + b"\x00" * 18 + b"\x00" + key + b"\x00")
+        p = r.run("publish", "cc-companion", "9.0.0", apk, "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
+        self.assertNotEqual(p.returncode, 0)              # another app gets no exception
+
     def test_wrong_kind_of_file(self):
         r = self.r
         p = r.run("publish", "cc-companion", "9.0.0", r.file("c.exe", EXE), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
