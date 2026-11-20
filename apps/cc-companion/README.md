@@ -1,5 +1,7 @@
 # CC Companion
 
+<img src="logo.png" width="96" align="right" alt="">
+
 Claude Control Companion: usage notification and widgets on an Android phone, and Claude Control in Android Auto.
 
 | | |

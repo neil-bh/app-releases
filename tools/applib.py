@@ -238,8 +238,13 @@ def app_readme(text, a, l):
     return with_block(text, LATEST_START, LATEST_END, latest_line(a, l))
 
 
+def logo_path(app_id, root=ROOT):
+    """apps/<id>/logo.png relative to the repo, or None when the app has no logo."""
+    return f"apps/{app_id}/logo.png" if os.path.isfile(os.path.join(app_dir(app_id, root), "logo.png")) else None
+
+
 def index_table(root=ROOT):
-    rows = ["| App | Platform | Latest | Details |", "|---|---|---|---|"]
+    rows = ["| | App | What it is | Platform | Latest | Released | Download |", "|:-:|---|---|---|---|---|---|"]
     for app_id in app_ids(root):
         try:
             a = load_app(app_id, root)
@@ -247,8 +252,15 @@ def index_table(root=ROOT):
             continue
         lp = os.path.join(app_dir(app_id, root), "latest.json")
         l = read_json(lp) if os.path.exists(lp) else None
-        latest = f"[{l['version']}]({l['url']}) ({l['date']})" if l else "not published yet"
-        rows.append(f"| {a['name']} | {a['platform']} | {latest} | [apps/{app_id}](apps/{app_id}/README.md) |")
+        logo = logo_path(app_id, root)
+        img = f'<img src="{logo}" width="48" alt="">' if logo else ""
+        name = f"**[{a['name']}](apps/{app_id}/README.md)**"
+        if l:
+            ver, when = f"**{l['version']}** · [notes](apps/{app_id}/CHANGELOG.json)", l["date"]
+            dl = f"[.{a['ext']}, {l['size'] / 1048576:.1f} MB]({l['url']})"
+        else:
+            ver, when, dl = "not published yet", "", ""
+        rows.append(f"| {img} | {name} | {a['summary']} | {a['platform']} | {ver} | {when} | {dl} |")
     return "\n".join(rows)
 
 

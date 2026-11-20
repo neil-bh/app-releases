@@ -49,6 +49,18 @@ class Repo:
         self.tmp = tempfile.mkdtemp(prefix="app-releases-test-")
         self.root = os.path.join(self.tmp, "repo")
         shutil.copytree(HERE, self.root, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+        # The tests must not depend on what is published today: no latest.json except a Family Game Night one.
+        for a in sorted(os.listdir(os.path.join(self.root, "apps"))):
+            f = os.path.join(self.root, "apps", a, "latest.json")
+            if os.path.exists(f):
+                os.remove(f)
+        fgn = "https://github.com/neil-bh/app-releases/releases/download/family-game-night-v454186/FamilyGameNight-454186.apk"
+        with open(os.path.join(self.root, "apps/family-game-night/latest.json"), "w") as f:
+            json.dump({"app": "family-game-night", "version": "454186", "tag": "family-game-night-v454186",
+                       "asset": "FamilyGameNight-454186.apk", "url": fgn, "sha256": "ab" * 32, "size": 26889119,
+                       "date": "2026-11-12", "notes_title": "Build 454186 (d931d98)"}, f)
+        sh(sys.executable, os.path.join(self.root, "tools", "check"), "--fix-index", cwd=self.root,
+           env=dict(os.environ, APP_RELEASES_ROOT=self.root))
         self.origin = os.path.join(self.tmp, "origin.git")
         sh("git", "init", "-q", "--bare", "-b", "main", self.origin)
         for c in (["init", "-q", "-b", "main"], ["config", "user.email", "t@example.invalid"], ["config", "user.name", "t"],
@@ -147,7 +159,9 @@ class Publish(unittest.TestCase):
         self.assertEqual(l["notes_title"], "Title 9.0.0")
         self.assertEqual(r.json("apps/claude-control-windows/CHANGELOG.json")["app"], "claude-control-windows")
         with open(os.path.join(r.root, "README.md")) as f:
-            self.assertIn("[9.0.0](https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v9.0.0/", f.read())
+            self.assertIn("**9.0.0** · [notes](apps/claude-control-windows/CHANGELOG.json)", f.read())
+        with open(os.path.join(r.root, "README.md")) as f:
+            self.assertIn("(https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v9.0.0/", f.read())
         with open(os.path.join(r.root, "apps/claude-control-windows/README.md")) as f:
             self.assertIn("Claude Control for Windows 9.0.0", f.read())
         # committed and pushed: origin has it, the tree is clean, and tools/check passes on the result
@@ -222,7 +236,7 @@ class Publish(unittest.TestCase):
         cl = r.changelog("f", ["999999", "454186"])
         p = r.run("publish", "family-game-night", "999999", r.file("f.apk", b"PK\x05\x06" + b"\x00" * 18), "--changelog", cl, "--dry-run")
         self.assertEqual(p.returncode, 0, p.stderr)
-        self.assertIn("tag family-game-night-b999999, asset family-game-night-b999999.apk", p.stdout)
+        self.assertIn("tag family-game-night-v999999, asset FamilyGameNight-999999.apk", p.stdout)
 
 
 class Check(unittest.TestCase):

@@ -1,5 +1,7 @@
 # RBV Control
 
+<img src="logo.png" width="96" align="right" alt="">
+
 Remote Browser View: lets Claude on the Dell see and drive a browser on the laptop, with the owner's permission.
 
 | | |

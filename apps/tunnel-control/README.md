@@ -1,5 +1,7 @@
 # Tunnel Control
 
+<img src="logo.png" width="96" align="right" alt="">
+
 Keeps the SSH forwards from a Windows PC to the Dell up (Rojo, Studio MCP and friends), from the notification area.
 
 | | |

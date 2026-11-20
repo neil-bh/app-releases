@@ -1,5 +1,7 @@
 # Claude Control for Windows
 
+<img src="logo.png" width="96" align="right" alt="">
+
 The Claude Control board in a window of its own, with your Claude usage in the Windows notification area.
 
 | | |

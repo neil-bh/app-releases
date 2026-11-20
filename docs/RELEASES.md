@@ -9,6 +9,7 @@ a build must contain nothing secret: `tools/publish` refuses a file with secret-
 ```
 apps/<app-id>/
   app.json        who the app is: id, name, platform, ext, asset_name, summary, min_os?, tag?, asset?
+  logo.png        128 px logo, shown in the root README's table and on the app's page
   README.md       what it is, how to install and update it; its "Latest" line is written by tools/publish
   CHANGELOG.json  {app: <app-id>, entries: [{version, date, title, notes[]}]}, newest first
   latest.json     what an app reads to update itself (below); present once something is published
@@ -20,9 +21,8 @@ README.md         index of the apps; its table is written by tools/publish
 
 Binaries are **GitHub Release assets**, never committed (`tools/check` fails if one is). Each release is tagged
 `<app-id>-v<version>` and its one asset is named `<asset_name>-<version>.<ext>` (e.g. `tunnel-control-v1.7.1` /
-`TunnelControl-1.7.1.exe`). An app may keep an older scheme through `tag`/`asset` templates in its `app.json`:
-Family Game Night keeps `family-game-night-b<build>` / `family-game-night-b<build>.apk`, which its in-app updater
-already depends on.
+`TunnelControl-1.7.1.exe`). An app may use another scheme through `tag`/`asset` templates in its `app.json`; none does now (Family Game Night
+moved to the uniform scheme with build numbers as versions, ADR-0020 in its project).
 
 | App id | App | Platform |
 |---|---|---|
