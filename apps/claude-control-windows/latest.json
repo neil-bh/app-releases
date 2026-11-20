@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.3.4",
- "tag": "claude-control-windows-v1.3.4",
- "asset": "ClaudeControl-1.3.4.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.3.4/ClaudeControl-1.3.4.exe",
- "sha256": "fd0c2ed5db2ce2c1ccbb796156405a15ebb6eabf9be480aa6952b30a68ebfc86",
- "size": 13950464,
- "date": "2026-11-19",
- "notes_title": "Called Claude Control everywhere",
+ "version": "1.4.1",
+ "tag": "claude-control-windows-v1.4.1",
+ "asset": "ClaudeControl-1.4.1.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.4.1/ClaudeControl-1.4.1.exe",
+ "sha256": "2d4c27e1bbadfb287dc72d73178a73f8cd13e31403b2c56097806c32b85b4f5a",
+ "size": 14020608,
+ "date": "2026-11-20",
+ "notes_title": "Safer sign-in",
  "min_os": "Windows 10"
 }
