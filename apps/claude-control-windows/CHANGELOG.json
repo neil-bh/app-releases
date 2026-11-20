@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.3.4",
+   "date": "2026-11-19",
+   "title": "Called Claude Control everywhere",
+   "notes": [
+    "Messages, settings and screens now say \"Claude Control\" where they used to say \"the board\"."
+   ]
+  },
+  {
    "version": "1.3.3",
    "date": "2026-11-19",
    "title": "Paste works in the terminal and Files",
