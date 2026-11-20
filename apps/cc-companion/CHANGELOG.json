@@ -2,6 +2,32 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.3.3",
+   "date": "2026-11-20",
+   "title": "The One Development badge",
+   "notes": [
+    "The About card on Device settings now ends with the One Development signature: the gold badge and the name.",
+    "The board inside the app does not play its short intro (the app has its own loading screen); the badge shows in the board's menu and About page as before."
+   ]
+  },
+  {
+   "version": "1.3.2",
+   "date": "2026-11-19",
+   "title": "Called Claude Control everywhere",
+   "notes": [
+    "Messages, settings and screens now say \"Claude Control\" where they used to say \"the board\"."
+   ]
+  },
+  {
+   "version": "1.3.1",
+   "date": "2026-11-19",
+   "title": "Device settings",
+   "notes": [
+    "This screen is now called Device settings: it holds what belongs to this phone (the link to the Dell, alerts, the car, updates). The board's menu has a matching Device settings page for text size, haptics and alerts, and reaches this screen from its App options row.",
+    "The small settings button on the Claude Control for Android app page in the board is gone; Device settings in the board's menu replaces it."
+   ]
+  },
+  {
    "version": "1.3.0",
    "date": "2026-11-19",
    "title": "A new look, and pictures that move",

@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.3.0",
- "tag": "cc-companion-v1.3.0",
- "asset": "ClaudeControlCompanion-1.3.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.3.0/ClaudeControlCompanion-1.3.0.apk",
- "sha256": "fa4cbba24a078f12cb267d561de85e7185a09e11234a1d1228a569dffa7c9008",
- "size": 12341926,
- "date": "2026-11-19",
- "notes_title": "A new look, and pictures that move",
+ "version": "1.3.3",
+ "tag": "cc-companion-v1.3.3",
+ "asset": "ClaudeControlCompanion-1.3.3.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.3.3/ClaudeControlCompanion-1.3.3.apk",
+ "sha256": "52214086cd5875664b3e96ed245583a1c1eceb4c25513f1923527b7e27aa3d7a",
+ "size": 12363974,
+ "date": "2026-11-20",
+ "notes_title": "The One Development badge",
  "min_os": "Android 10"
 }
