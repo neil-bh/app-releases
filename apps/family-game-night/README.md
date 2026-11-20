@@ -12,7 +12,7 @@ A party phrase game for the family: test builds for Android.
 | For the app's updater | [latest.json](latest.json) (`https://raw.githubusercontent.com/neil-bh/app-releases/main/apps/family-game-night/latest.json`) |
 
 <!-- latest:start (tools/publish writes this line) -->
-**Latest:** nothing published here yet (the old `-b` build was withdrawn; the next build from the game\'s own project goes out under the new naming).
+**Latest:** [Family Game Night 465260](https://github.com/neil-bh/app-releases/releases/download/family-game-night-v465260/FamilyGameNight-465260.apk) (2026-11-20, 25.7 MB, SHA-256 `036704e05ff69d9acf32aabb2d355efc958db5adaa76f82a4b51c75da2c84491`) · [all releases](https://github.com/neil-bh/app-releases/releases?q=family-game-night&expanded=true)
 <!-- latest:end -->
 
 **Install:** on an Android phone, download the `.apk` from the latest release and open it.

@@ -2,6 +2,15 @@
  "app": "family-game-night",
  "entries": [
   {
+   "version": "465260",
+   "date": "2026-11-20",
+   "title": "Build 465260 (0e9a11b)",
+   "notes": [
+    "The updater no longer depends on how many releases other apps add",
+    "Updates are checked for size and integrity before they install"
+   ]
+  },
+  {
    "version": "454186",
    "date": "2026-11-12",
    "title": "Build 454186 (d931d98)",
