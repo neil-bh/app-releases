@@ -54,11 +54,14 @@ class Repo:
             f = os.path.join(self.root, "apps", a, "latest.json")
             if os.path.exists(f):
                 os.remove(f)
-        fgn = "https://github.com/neil-bh/app-releases/releases/download/family-game-night-v454186/FamilyGameNight-454186.apk"
+        with open(os.path.join(self.root, "apps/family-game-night/CHANGELOG.json")) as f:
+            top = json.load(f)["entries"][0]
+        v = top["version"]
         with open(os.path.join(self.root, "apps/family-game-night/latest.json"), "w") as f:
-            json.dump({"app": "family-game-night", "version": "454186", "tag": "family-game-night-v454186",
-                       "asset": "FamilyGameNight-454186.apk", "url": fgn, "sha256": "ab" * 32, "size": 26889119,
-                       "date": "2026-11-12", "notes_title": "Build 454186 (d931d98)"}, f)
+            json.dump({"app": "family-game-night", "version": v, "tag": f"family-game-night-v{v}",
+                       "asset": f"FamilyGameNight-{v}.apk",
+                       "url": f"https://github.com/neil-bh/app-releases/releases/download/family-game-night-v{v}/FamilyGameNight-{v}.apk",
+                       "sha256": "ab" * 32, "size": 26889119, "date": top["date"], "notes_title": top["title"]}, f)
         sh(sys.executable, os.path.join(self.root, "tools", "check"), "--fix-index", cwd=self.root,
            env=dict(os.environ, APP_RELEASES_ROOT=self.root))
         self.origin = os.path.join(self.tmp, "origin.git")
