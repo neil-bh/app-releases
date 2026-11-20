@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.3.4",
- "tag": "cc-companion-v1.3.4",
- "asset": "ClaudeControlCompanion-1.3.4.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.3.4/ClaudeControlCompanion-1.3.4.apk",
- "sha256": "e447be3e0f10f70ffc99f3b93cbf20ea7a7be7795b34b7f0e0287e7a8743bfdb",
- "size": 12364254,
+ "version": "1.4.1",
+ "tag": "cc-companion-v1.4.1",
+ "asset": "ClaudeControlCompanion-1.4.1.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.4.1/ClaudeControlCompanion-1.4.1.apk",
+ "sha256": "65a6e4ad1abc198ed0277decf232b92196e945a28e9d26335fb4fe450a366cc8",
+ "size": 12463842,
  "date": "2026-11-20",
- "notes_title": "Ask tab fits the car screen",
+ "notes_title": "Safer sign-in",
  "min_os": "Android 10"
 }
