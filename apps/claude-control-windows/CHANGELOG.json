@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.6.0",
+   "date": "2026-11-21",
+   "title": "One Claude Control icon",
+   "notes": [
+    "The app, title bar, taskbar and shortcut icons are redrawn from the one Claude Control mark, so they match the page header, the browser tab and the Android app exactly (the tray's number tiles are unchanged)."
+   ]
+  },
+  {
    "version": "1.5.0",
    "date": "2026-11-21",
    "title": "Settings in one place",

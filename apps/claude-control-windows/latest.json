@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.5.0",
- "tag": "claude-control-windows-v1.5.0",
- "asset": "ClaudeControl-1.5.0.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.5.0/ClaudeControl-1.5.0.exe",
- "sha256": "89123d95a2fc10579bbd798c200e7c4603e564a66fef5c8960060c771410d9e8",
- "size": 14031872,
+ "version": "1.6.0",
+ "tag": "claude-control-windows-v1.6.0",
+ "asset": "ClaudeControl-1.6.0.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.6.0/ClaudeControl-1.6.0.exe",
+ "sha256": "a1c581366b226b69c49532505b809636bc75e8fa11286c1ae75f68277ec4995f",
+ "size": 14009856,
  "date": "2026-11-21",
- "notes_title": "Settings in one place",
+ "notes_title": "One Claude Control icon",
  "min_os": "Windows 10"
 }
