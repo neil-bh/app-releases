@@ -2,6 +2,18 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.6.0",
+   "date": "2026-11-21",
+   "title": "One Settings page for everything",
+   "notes": [
+    "The Device settings screen no longer holds its own copy of your options. Alerts, usage, the agents chip, buzz, voice, reading speed, the car and the microphone and notification permissions are now in Settings inside Claude Control, next to the Theme, Text size and Voice options, in one tidy list.",
+    "The app's own address, sign-in and sign-out are in that Settings page too, under Connection. Changing the address or signing out always asks you in a window the page cannot press for you.",
+    "Voice, reading speed and 'send straight after dictating' are now one setting each: change it in Settings and the car uses it too.",
+    "The old screen stays only as a short fallback for when Claude Control cannot be reached or the app is not linked yet: link to the Dell, sign in, check for updates, and a button that opens Settings.",
+    "The launcher icon's Settings shortcut and the gear now open Settings inside Claude Control."
+   ]
+  },
+  {
    "version": "1.5.0",
    "date": "2026-11-21",
    "title": "Confirm it's you with your fingerprint",
