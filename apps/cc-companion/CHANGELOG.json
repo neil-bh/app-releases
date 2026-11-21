@@ -2,6 +2,17 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.5.0",
+   "date": "2026-11-21",
+   "title": "Confirm it's you with your fingerprint",
+   "notes": [
+    "You can now confirm sensitive actions with your fingerprint instead of typing the 6-digit code. Open Settings, then Devices and sign-in, then Fingerprint, and choose Turn on. You type your code once to switch it on.",
+    "When something needs confirming, the fingerprint prompt appears first, in the app and on the notice the car leaves. 'Use code instead' is always there, and the code still works exactly as before.",
+    "The fingerprint key stays inside this phone and cannot be copied off it. If you add or remove a fingerprint in the phone's settings, the key is switched off for your safety and you turn it on again.",
+    "Nothing changes on the web or in Windows."
+   ]
+  },
+  {
    "version": "1.4.3",
    "date": "2026-11-21",
    "title": "Set up the authenticator from the app",
