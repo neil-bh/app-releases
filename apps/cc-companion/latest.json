@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.7.0",
- "tag": "cc-companion-v1.7.0",
- "asset": "ClaudeControlCompanion-1.7.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.7.0/ClaudeControlCompanion-1.7.0.apk",
- "sha256": "a44357454597c64eddacd4e93c96ef66393f4e7862e04cfa663298a8d2323a0b",
- "size": 12541058,
+ "version": "1.8.0",
+ "tag": "cc-companion-v1.8.0",
+ "asset": "ClaudeControlCompanion-1.8.0.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.8.0/ClaudeControlCompanion-1.8.0.apk",
+ "sha256": "302e9518348d14ca1768f266448323ae982abf03ba35045e2a51eeae24cc8f73",
+ "size": 12542682,
  "date": "2026-11-21",
- "notes_title": "Safer, steadier screens",
+ "notes_title": "A real Microphone switch",
  "min_os": "Android 10"
 }

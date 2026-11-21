@@ -2,6 +2,15 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.8.0",
+   "date": "2026-11-21",
+   "title": "A real Microphone switch",
+   "notes": [
+    "Settings shows Microphone as a switch that matches Android's permission: on when allowed, off when refused, and an Allow button until you have been asked. It updates when you come back to the app after changing it in Android's settings.",
+    "Devices and sign-in sits with the Connection rows, next to Sign out. Widgets and Version and updates are gone from Settings (the version is in About), and Map style is now Map."
+   ]
+  },
+  {
    "version": "1.7.0",
    "date": "2026-11-21",
    "title": "Safer, steadier screens",
