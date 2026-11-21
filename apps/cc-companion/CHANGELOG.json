@@ -2,6 +2,19 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.7.0",
+   "date": "2026-11-21",
+   "title": "Safer, steadier screens",
+   "notes": [
+    "Sign in and Confirm it's you now fit properly on every phone: the title stays clear of the camera and clock, and the buttons stay above the keyboard. The screens scroll, and turning on dark mode or unfolding the phone no longer throws away a code you were typing.",
+    "In the car, a double tap on Send no longer types your message twice. Your message and the answer on the screen are shorter, so they are quicker to read at a glance; the answer is still read out in full.",
+    "Pulling down to reload now only works when the page is at the very top, so it can no longer reload halfway down and lose a message you were typing.",
+    "If notifications are off, the car's Confirm on the phone now opens the confirm screen on the phone instead of waiting for a notice that never comes.",
+    "Claude Control's address must start with https. Plain http never worked on a phone anyway, so it is now refused with a clear message instead of a board that will not load.",
+    "Saving files, reading settings and the fingerprint prompt can no longer be triggered by a hidden frame inside a page; only the Claude Control page itself can use them."
+   ]
+  },
+  {
    "version": "1.6.1",
    "date": "2026-11-21",
    "title": "Fingerprint now found",
