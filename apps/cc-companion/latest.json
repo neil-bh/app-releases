@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.4.2",
- "tag": "cc-companion-v1.4.2",
- "asset": "ClaudeControlCompanion-1.4.2.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.4.2/ClaudeControlCompanion-1.4.2.apk",
- "sha256": "5e2d5727b2933826e7876f767c5a9e8cd518d33c582233c5319b82873c40911c",
- "size": 12463686,
+ "version": "1.4.3",
+ "tag": "cc-companion-v1.4.3",
+ "asset": "ClaudeControlCompanion-1.4.3.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.4.3/ClaudeControlCompanion-1.4.3.apk",
+ "sha256": "b39a9a1e3fbb14089046cab5fa15df0d45d2482aa3559c326f106471e7aa8764",
+ "size": 12463702,
  "date": "2026-11-21",
- "notes_title": "A tidier bottom edge",
+ "notes_title": "Set up the authenticator from the app",
  "min_os": "Android 10"
 }

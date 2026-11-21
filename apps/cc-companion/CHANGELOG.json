@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.4.3",
+   "date": "2026-11-21",
+   "title": "Set up the authenticator from the app",
+   "notes": [
+    "On a phone that is already signed in, 'Set up sign-in' now opens the board's own page for the authenticator step. Before, it sent you back to the 'Sign in this phone' screen and you could not get there."
+   ]
+  },
+  {
    "version": "1.4.2",
    "date": "2026-11-21",
    "title": "A tidier bottom edge",
