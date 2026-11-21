@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.4.2",
+   "date": "2026-11-21",
+   "title": "A tidier bottom edge",
+   "notes": [
+    "The floating 'agents working' pill over the page is gone: it covered the bottom tabs and repeated the count already shown at the top. The buzz when agents finish or one needs you stays."
+   ]
+  },
+  {
    "version": "1.4.1",
    "date": "2026-11-20",
    "title": "Safer sign-in",

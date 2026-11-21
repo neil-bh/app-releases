@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.4.1",
- "tag": "cc-companion-v1.4.1",
- "asset": "ClaudeControlCompanion-1.4.1.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.4.1/ClaudeControlCompanion-1.4.1.apk",
- "sha256": "65a6e4ad1abc198ed0277decf232b92196e945a28e9d26335fb4fe450a366cc8",
- "size": 12463842,
- "date": "2026-11-20",
- "notes_title": "Safer sign-in",
+ "version": "1.4.2",
+ "tag": "cc-companion-v1.4.2",
+ "asset": "ClaudeControlCompanion-1.4.2.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.4.2/ClaudeControlCompanion-1.4.2.apk",
+ "sha256": "5e2d5727b2933826e7876f767c5a9e8cd518d33c582233c5319b82873c40911c",
+ "size": 12463686,
+ "date": "2026-11-21",
+ "notes_title": "A tidier bottom edge",
  "min_os": "Android 10"
 }
