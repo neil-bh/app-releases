@@ -1,0 +1,18 @@
+{
+  "worktree": {
+    "baseRef": "head"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "d=\"$CLAUDE_PROJECT_DIR\"; echo \"\u21aa $(projid id \"$d\" 2>/dev/null || basename \"$d\") (baseline $(python3 -c 'import json,sys;m=json.load(open(sys.argv[1]));print(m.get(\"version\",\"?\")+\", \"+m.get(\"profile\",\"?\"))' \"$d/.baseline\" 2>/dev/null)): you are the OWNER session. Start from docs/STATUS.md. Helpers: baseline:explorer \u00b7 baseline:implementer \u00b7 baseline:verifier \u00b7 baseline:reviewer. Gate: tools/check.\"; [ -x \"$d/tools/session-start\" ] && \"$d/tools/session-start\"; command -v usage-weekly-warn >/dev/null && usage-weekly-warn 2>/dev/null | head -1; command -v claude-resume-hook >/dev/null && claude-resume-hook; true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

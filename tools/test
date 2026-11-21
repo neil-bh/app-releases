@@ -311,4 +311,5 @@ class Check(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    os.environ["APP_RELEASES_IN_TEST"] = "1"  # the scratch repos run the plain check; tools/check must not run the tests again
     unittest.main(verbosity=1)

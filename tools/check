@@ -11,6 +11,8 @@ follow app.json's templates and its url is that release asset's GitHub download 
 Offline: nothing here asks GitHub.
 """
 import os
+import shutil
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
@@ -68,6 +70,15 @@ def main(argv=None):
         bad += not ok
         print(f"  {'PASS' if ok else 'FAIL'} README.md index" + ("" if ok else " is out of date (tools/publish rewrites it; or run tools/check --fix-index)"))
     print(f"check: {len(ids)} app(s), {'all good' if not bad else f'{bad} problem area(s)'}")
+    if not argv and not bad and not os.environ.get("APP_RELEASES_IN_TEST"):
+        # The project gate: a clean full check also runs the tests (tools/test sets the variable, so no loop),
+        # then tells the Stop hook the gate passed on this tree.
+        t = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "test")],
+                           capture_output=True, text=True, env=dict(os.environ, APP_RELEASES_IN_TEST="1"))
+        print("tests: " + ("PASS" if t.returncode == 0 else "FAIL\n" + t.stdout[-2000:] + t.stderr[-2000:]))
+        bad += t.returncode != 0
+        if not bad and shutil.which("baseline-gate-stamp"):
+            subprocess.run(["baseline-gate-stamp", "write"])
     return 1 if bad else 0
 
 

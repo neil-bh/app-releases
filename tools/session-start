@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# session-start — this project's own start-up lines, run by the SessionStart hook after the owner line.
+# The hook command in .claude/settings.json is the template's, word for word, so `baseline-update` can
+# replace it on a template bump; anything project-specific goes HERE instead of into that command.
+# Whatever this prints is shown to Claude at the start of every session: keep it to a few short lines
+# (a safety reminder, a "wrong folder" warning, a pointer to a skill). It shares the hook's 10 s limit.
+# Examples:
+#   echo "↪ Deploy only through the ship skill; back up first."
+#   [ "$PWD" = "$CLAUDE_PROJECT_DIR" ] || echo "⚠ session cwd is $PWD, expected $CLAUDE_PROJECT_DIR"
+exit 0
