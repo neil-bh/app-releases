@@ -2,6 +2,15 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.9.1",
+   "date": "2026-11-21",
+   "title": "Widget previews are no longer blank",
+   "notes": [
+    "When you pick a Claude usage widget, the preview now shows a real example (rings, numbers and resets) in light or dark, instead of an empty box.",
+    "A widget you have just added shows \"Claude usage / Reading…\" until its first reading arrives, instead of a blank card."
+   ]
+  },
+  {
    "version": "1.9.0",
    "date": "2026-11-21",
    "title": "One Claude Control icon",

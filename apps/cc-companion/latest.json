@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.9.0",
- "tag": "cc-companion-v1.9.0",
- "asset": "ClaudeControlCompanion-1.9.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.9.0/ClaudeControlCompanion-1.9.0.apk",
- "sha256": "041d1b6d979199ed24d528c0a17bdcf228297372c726819534a0b36ea1ef3de0",
- "size": 12522793,
+ "version": "1.9.1",
+ "tag": "cc-companion-v1.9.1",
+ "asset": "ClaudeControlCompanion-1.9.1.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.9.1/ClaudeControlCompanion-1.9.1.apk",
+ "sha256": "9512be817a49f456ffbd805c50cb2a125ee7e31287f48c7a44583d10b0910020",
+ "size": 12691740,
  "date": "2026-11-21",
- "notes_title": "One Claude Control icon",
+ "notes_title": "Widget previews are no longer blank",
  "min_os": "Android 10"
 }
