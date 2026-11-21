@@ -2,6 +2,20 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.10.0",
+   "date": "2026-11-21",
+   "title": "Six new home-screen widgets",
+   "notes": [
+    "Needs you: how many sessions are waiting for you, with the first three by name. Tap a name to open that session.",
+    "Sessions: up to five of your sessions with a dot (red needs you, green working, grey idle). Tap one to open it.",
+    "Quick reply: one tap into the session that needs you, or the busiest one if nobody is waiting.",
+    "Live feed: the last three things that happened, in plain words with the time. It never shows what was said.",
+    "Usage strip: both usage rings in one thin bar, with each reset time and a countdown.",
+    "Dell: whether the Dell is held awake or sitting idle, how many sessions are busy, and whether your phone can reach Claude Control.",
+    "They follow your light or dark theme, take your wallpaper's colour on Android 12 and later, and refresh together with the usage widgets, so they use no extra battery. Add them from the home screen: touch and hold, Widgets, Claude Control."
+   ]
+  },
+  {
    "version": "1.9.1",
    "date": "2026-11-21",
    "title": "Widget previews are no longer blank",

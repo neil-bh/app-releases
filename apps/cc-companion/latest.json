@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.9.1",
- "tag": "cc-companion-v1.9.1",
- "asset": "ClaudeControlCompanion-1.9.1.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.9.1/ClaudeControlCompanion-1.9.1.apk",
- "sha256": "9512be817a49f456ffbd805c50cb2a125ee7e31287f48c7a44583d10b0910020",
- "size": 12691740,
+ "version": "1.10.0",
+ "tag": "cc-companion-v1.10.0",
+ "asset": "ClaudeControlCompanion-1.10.0.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.10.0/ClaudeControlCompanion-1.10.0.apk",
+ "sha256": "bca05b5f4b667465b483962c8c1a8605a267cf84a1cc6b7ed3cc5069010252b5",
+ "size": 13211370,
  "date": "2026-11-21",
- "notes_title": "Widget previews are no longer blank",
+ "notes_title": "Six new home-screen widgets",
  "min_os": "Android 10"
 }
