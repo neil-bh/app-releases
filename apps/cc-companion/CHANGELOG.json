@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.6.1",
+   "date": "2026-11-21",
+   "title": "Fingerprint now found",
+   "notes": [
+    "Settings, Security, Devices and sign-in said this phone had no fingerprint unlock even when it has one. The app was missing the permission to ask Android about it. It now has it, so Turn on… works."
+   ]
+  },
+  {
    "version": "1.6.0",
    "date": "2026-11-21",
    "title": "One Settings page for everything",

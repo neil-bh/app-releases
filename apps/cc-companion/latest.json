@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.6.0",
- "tag": "cc-companion-v1.6.0",
- "asset": "ClaudeControlCompanion-1.6.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.6.0/ClaudeControlCompanion-1.6.0.apk",
- "sha256": "57fcf62b2e4f5ca935c1ffcc0f266ef1370eb5d913e6f125ee6ec5ed30eab90d",
- "size": 12538386,
+ "version": "1.6.1",
+ "tag": "cc-companion-v1.6.1",
+ "asset": "ClaudeControlCompanion-1.6.1.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.6.1/ClaudeControlCompanion-1.6.1.apk",
+ "sha256": "29877ffc53417ffdce98cfaeffa5a8848cb7e4af295067952fc0fd98b1169232",
+ "size": 12538418,
  "date": "2026-11-21",
- "notes_title": "One Settings page for everything",
+ "notes_title": "Fingerprint now found",
  "min_os": "Android 10"
 }
