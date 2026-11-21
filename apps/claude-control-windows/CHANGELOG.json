@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.5.0",
+   "date": "2026-11-21",
+   "title": "Settings in one place",
+   "notes": [
+    "Close to tray, start with Windows, alerts and quiet hours are now in Claude Control's one Settings page, in the same style as everything else. The tray menu still works."
+   ]
+  },
+  {
    "version": "1.4.1",
    "date": "2026-11-20",
    "title": "Safer sign-in",

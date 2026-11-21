@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.4.1",
- "tag": "claude-control-windows-v1.4.1",
- "asset": "ClaudeControl-1.4.1.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.4.1/ClaudeControl-1.4.1.exe",
- "sha256": "2d4c27e1bbadfb287dc72d73178a73f8cd13e31403b2c56097806c32b85b4f5a",
- "size": 14020608,
- "date": "2026-11-20",
- "notes_title": "Safer sign-in",
+ "version": "1.5.0",
+ "tag": "claude-control-windows-v1.5.0",
+ "asset": "ClaudeControl-1.5.0.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.5.0/ClaudeControl-1.5.0.exe",
+ "sha256": "89123d95a2fc10579bbd798c200e7c4603e564a66fef5c8960060c771410d9e8",
+ "size": 14031872,
+ "date": "2026-11-21",
+ "notes_title": "Settings in one place",
  "min_os": "Windows 10"
 }
