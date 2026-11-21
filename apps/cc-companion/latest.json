@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.8.0",
- "tag": "cc-companion-v1.8.0",
- "asset": "ClaudeControlCompanion-1.8.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.8.0/ClaudeControlCompanion-1.8.0.apk",
- "sha256": "302e9518348d14ca1768f266448323ae982abf03ba35045e2a51eeae24cc8f73",
- "size": 12542682,
+ "version": "1.9.0",
+ "tag": "cc-companion-v1.9.0",
+ "asset": "ClaudeControlCompanion-1.9.0.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.9.0/ClaudeControlCompanion-1.9.0.apk",
+ "sha256": "041d1b6d979199ed24d528c0a17bdcf228297372c726819534a0b36ea1ef3de0",
+ "size": 12522793,
  "date": "2026-11-21",
- "notes_title": "A real Microphone switch",
+ "notes_title": "One Claude Control icon",
  "min_os": "Android 10"
 }

@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.9.0",
+   "date": "2026-11-21",
+   "title": "One Claude Control icon",
+   "notes": [
+    "The launcher icon, the themed icon and the Android Auto tile are now the same Claude Control mark you see in the page header and on Windows: eight coral rays round a core. The little robot and the phone badge are gone from the icon (the robots stay inside the app)."
+   ]
+  },
+  {
    "version": "1.8.0",
    "date": "2026-11-21",
    "title": "A real Microphone switch",
