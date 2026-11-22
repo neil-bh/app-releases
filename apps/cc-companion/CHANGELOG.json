@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.11.0",
+   "date": "2026-11-22",
+   "title": "Back goes back, and asks before leaving",
+   "notes": [
+    "The Back swipe now closes whatever is on top first: the menu or one of its pages, a sheet, the terminal, a viewer. Then it goes to the page you were on before, such as Files back to the Overview.",
+    "Only on the Overview with nothing open does it offer to leave. The first swipe shows \"Swipe back again to exit\"; a second swipe within two seconds closes the app.",
+    "New: Menu > Close app leaves straight away, so exiting is always one tap."
+   ]
+  },
+  {
    "version": "1.10.0",
    "date": "2026-11-21",
    "title": "Six new home-screen widgets",

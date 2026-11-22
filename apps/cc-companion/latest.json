@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.10.0",
- "tag": "cc-companion-v1.10.0",
- "asset": "ClaudeControlCompanion-1.10.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.10.0/ClaudeControlCompanion-1.10.0.apk",
- "sha256": "bca05b5f4b667465b483962c8c1a8605a267cf84a1cc6b7ed3cc5069010252b5",
- "size": 13211370,
- "date": "2026-11-21",
- "notes_title": "Six new home-screen widgets",
+ "version": "1.11.0",
+ "tag": "cc-companion-v1.11.0",
+ "asset": "ClaudeControlCompanion-1.11.0.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.11.0/ClaudeControlCompanion-1.11.0.apk",
+ "sha256": "066334104040979cced5b00999ae4548537c834f13c79f5b3d9065f894ede5cc",
+ "size": 13214342,
+ "date": "2026-11-22",
+ "notes_title": "Back goes back, and asks before leaving",
  "min_os": "Android 10"
 }
