@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.11.1",
- "tag": "cc-companion-v1.11.1",
- "asset": "ClaudeControlCompanion-1.11.1.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.11.1/ClaudeControlCompanion-1.11.1.apk",
- "sha256": "190808ead4fd9b589545342011a52be98c20eafd146367dbc7df95691aa7be40",
- "size": 13214346,
+ "version": "1.11.2",
+ "tag": "cc-companion-v1.11.2",
+ "asset": "ClaudeControlCompanion-1.11.2.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.11.2/ClaudeControlCompanion-1.11.2.apk",
+ "sha256": "4bcbfea0849bcf260aca2f084f6e3326462331973e909082b208bfdf096f7fba",
+ "size": 13214342,
  "date": "2026-11-22",
- "notes_title": "A small build to show the update bar",
+ "notes_title": "Downloads keep their file name",
  "min_os": "Android 10"
 }

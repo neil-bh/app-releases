@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.11.2",
+   "date": "2026-11-22",
+   "title": "Downloads keep their file name",
+   "notes": [
+    "Fixed: a video or other file downloaded from Files was saved with the extension .bin (for example holiday.mp4 became holiday.bin). It now keeps its own name and extension."
+   ]
+  },
+  {
    "version": "1.11.1",
    "date": "2026-11-22",
    "title": "A small build to show the update bar",
