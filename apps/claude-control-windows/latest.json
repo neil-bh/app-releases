@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.7.0",
- "tag": "claude-control-windows-v1.7.0",
- "asset": "ClaudeControl-1.7.0.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.0/ClaudeControl-1.7.0.exe",
- "sha256": "41e2495a080068cc915456af3b73a4f4f722f24ff91b67765ec004702c464e60",
+ "version": "1.7.1",
+ "tag": "claude-control-windows-v1.7.1",
+ "asset": "ClaudeControl-1.7.1.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.1/ClaudeControl-1.7.1.exe",
+ "sha256": "177c355b101c31ac00f3ed4df19b195f357b1f5404615f383c3c41284bb6d6e2",
  "size": 14069760,
- "date": "2026-11-21",
- "notes_title": "Detached views are real windows",
+ "date": "2026-11-22",
+ "notes_title": "A small build to show the update bar",
  "min_os": "Windows 10"
 }
