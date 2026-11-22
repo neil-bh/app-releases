@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.11.1",
+   "date": "2026-11-22",
+   "title": "A small build to show the update bar",
+   "notes": [
+    "No visible change to the app itself. This build exists so the new update bar (a coloured strip at the top that says a newer version is ready) can be seen working."
+   ]
+  },
+  {
    "version": "1.11.0",
    "date": "2026-11-22",
    "title": "Back goes back, and asks before leaving",

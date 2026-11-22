@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.11.0",
- "tag": "cc-companion-v1.11.0",
- "asset": "ClaudeControlCompanion-1.11.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.11.0/ClaudeControlCompanion-1.11.0.apk",
- "sha256": "066334104040979cced5b00999ae4548537c834f13c79f5b3d9065f894ede5cc",
- "size": 13214342,
+ "version": "1.11.1",
+ "tag": "cc-companion-v1.11.1",
+ "asset": "ClaudeControlCompanion-1.11.1.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.11.1/ClaudeControlCompanion-1.11.1.apk",
+ "sha256": "190808ead4fd9b589545342011a52be98c20eafd146367dbc7df95691aa7be40",
+ "size": 13214346,
  "date": "2026-11-22",
- "notes_title": "Back goes back, and asks before leaving",
+ "notes_title": "A small build to show the update bar",
  "min_os": "Android 10"
 }
