@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.6.0",
- "tag": "claude-control-windows-v1.6.0",
- "asset": "ClaudeControl-1.6.0.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.6.0/ClaudeControl-1.6.0.exe",
- "sha256": "a1c581366b226b69c49532505b809636bc75e8fa11286c1ae75f68277ec4995f",
- "size": 14009856,
+ "version": "1.7.0",
+ "tag": "claude-control-windows-v1.7.0",
+ "asset": "ClaudeControl-1.7.0.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.0/ClaudeControl-1.7.0.exe",
+ "sha256": "41e2495a080068cc915456af3b73a4f4f722f24ff91b67765ec004702c464e60",
+ "size": 14069760,
  "date": "2026-11-21",
- "notes_title": "One Claude Control icon",
+ "notes_title": "Detached views are real windows",
  "min_os": "Windows 10"
 }

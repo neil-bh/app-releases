@@ -2,6 +2,17 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.0",
+   "date": "2026-11-21",
+   "title": "Detached views are real windows",
+   "notes": [
+    "The pop-out buttons on Claude Control's cards (Tower, Live feed, Office, Sessions, Orbits) now open a window of their own instead of sending you to your browser. Drag it to another monitor or a TV, snap it to a screen edge with Win+arrow keys, and minimise the main window: the detached views stay where they are.",
+    "Press F11 (or the small button that shows when you move the mouse) to make a view full screen on the monitor it is on; Esc leaves full screen. In full screen the mouse pointer hides after a few seconds and the screen is kept awake, so it suits a TV.",
+    "Each view remembers where it was, which monitor, and whether it was full screen, and comes back there next time. If a monitor has been unplugged it opens on a screen you still have. Opening a view that is already open brings it to the front.",
+    "The tray menu has a Detached views list (bring to front, close, close all, always on top). Closing the main window keeps the app running in the tray while any detached view is open."
+   ]
+  },
+  {
    "version": "1.6.0",
    "date": "2026-11-21",
    "title": "One Claude Control icon",
