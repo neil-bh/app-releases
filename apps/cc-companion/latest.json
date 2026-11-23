@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.11.2",
- "tag": "cc-companion-v1.11.2",
- "asset": "ClaudeControlCompanion-1.11.2.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.11.2/ClaudeControlCompanion-1.11.2.apk",
- "sha256": "4bcbfea0849bcf260aca2f084f6e3326462331973e909082b208bfdf096f7fba",
- "size": 13214342,
- "date": "2026-11-22",
- "notes_title": "Downloads keep their file name",
+ "version": "1.12.0",
+ "tag": "cc-companion-v1.12.0",
+ "asset": "ClaudeControlCompanion-1.12.0.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.12.0/ClaudeControlCompanion-1.12.0.apk",
+ "sha256": "a72b38177884b15e199cd86dd11fd761a64f28a0468931f426321c905da41acc",
+ "size": 13751862,
+ "date": "2026-11-23",
+ "notes_title": "Redrawn widgets and a quieter app",
  "min_os": "Android 10"
 }

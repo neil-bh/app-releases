@@ -2,6 +2,16 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.12.0",
+   "date": "2026-11-23",
+   "title": "Redrawn widgets and a quieter app",
+   "notes": [
+    "All widgets have a new look: gradient surfaces, status dots, tidy headers and round usage rings, with new previews in the widget picker.",
+    "Android Auto now follows the board's live stream instead of asking every 4 seconds, and falls back to asking if the stream is unavailable.",
+    "Smaller things: sign-in details are decrypted once instead of on every request, and the app shares one network connection pool."
+   ]
+  },
+  {
    "version": "1.11.2",
    "date": "2026-11-22",
    "title": "Downloads keep their file name",
