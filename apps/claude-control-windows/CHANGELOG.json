@@ -2,6 +2,15 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.2",
+   "date": "2026-11-23",
+   "title": "A lighter tray icon",
+   "notes": [
+    "The tray icon is drawn once per state instead of every second and a half while a session is working, which saves CPU.",
+    "The check for the old PowerShell tray no longer runs at every start once it has found nothing."
+   ]
+  },
+  {
    "version": "1.7.1",
    "date": "2026-11-22",
    "title": "A small build to show the update bar",

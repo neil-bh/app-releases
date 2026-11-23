@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.7.1",
- "tag": "claude-control-windows-v1.7.1",
- "asset": "ClaudeControl-1.7.1.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.1/ClaudeControl-1.7.1.exe",
- "sha256": "177c355b101c31ac00f3ed4df19b195f357b1f5404615f383c3c41284bb6d6e2",
- "size": 14069760,
- "date": "2026-11-22",
- "notes_title": "A small build to show the update bar",
+ "version": "1.7.2",
+ "tag": "claude-control-windows-v1.7.2",
+ "asset": "ClaudeControl-1.7.2.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.2/ClaudeControl-1.7.2.exe",
+ "sha256": "eba284c91ce32cb4b4a5a33808500f8b3ed792a7cbf1c6b7aeb5274ade6d0c24",
+ "size": 14075904,
+ "date": "2026-11-23",
+ "notes_title": "A lighter tray icon",
  "min_os": "Windows 10"
 }
