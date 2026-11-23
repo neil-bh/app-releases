@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.12.0",
- "tag": "cc-companion-v1.12.0",
- "asset": "ClaudeControlCompanion-1.12.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.12.0/ClaudeControlCompanion-1.12.0.apk",
- "sha256": "a72b38177884b15e199cd86dd11fd761a64f28a0468931f426321c905da41acc",
- "size": 13751862,
+ "version": "1.12.1",
+ "tag": "cc-companion-v1.12.1",
+ "asset": "ClaudeControlCompanion-1.12.1.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.12.1/ClaudeControlCompanion-1.12.1.apk",
+ "sha256": "8c1c1808a5991ab2f5f8a5f5636e5a38ab1065d57a4b97575f432a83c72f804c",
+ "size": 13757914,
  "date": "2026-11-23",
- "notes_title": "Redrawn widgets and a quieter app",
+ "notes_title": "Tidier inside",
  "min_os": "Android 10"
 }
