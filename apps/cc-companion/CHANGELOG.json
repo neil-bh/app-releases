@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.12.2",
+   "date": "2026-11-23",
+   "title": "Tidier settings code",
+   "notes": [
+    "No visible change: the Settings screen's code is split into clearer sections, and old internal notes are cleaned out."
+   ]
+  },
+  {
    "version": "1.12.1",
    "date": "2026-11-23",
    "title": "Tidier inside",
