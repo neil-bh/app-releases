@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.12.3",
+   "date": "2026-11-23",
+   "title": "A smaller app",
+   "notes": [
+    "The app is about a third of its size (13.8 MB down to 4.5 MB) because unused code and resources are now stripped out. Nothing should look different."
+   ]
+  },
+  {
    "version": "1.12.2",
    "date": "2026-11-23",
    "title": "Tidier settings code",

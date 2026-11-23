@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.12.2",
- "tag": "cc-companion-v1.12.2",
- "asset": "ClaudeControlCompanion-1.12.2.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.12.2/ClaudeControlCompanion-1.12.2.apk",
- "sha256": "b734c4e21d46a53d6f14346dff8c675b95d2358ba5ddfa29f70a6ca17ef2378c",
- "size": 13760310,
+ "version": "1.12.3",
+ "tag": "cc-companion-v1.12.3",
+ "asset": "ClaudeControlCompanion-1.12.3.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.12.3/ClaudeControlCompanion-1.12.3.apk",
+ "sha256": "6ebfbbf6f04586ef8e84390bcfba3ba4c7b739797adea84bbc80d9a891d2737d",
+ "size": 4530263,
  "date": "2026-11-23",
- "notes_title": "Tidier settings code",
+ "notes_title": "A smaller app",
  "min_os": "Android 10"
 }
