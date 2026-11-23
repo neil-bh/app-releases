@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.3",
+   "date": "2026-11-23",
+   "title": "Tidier inside",
+   "notes": [
+    "No visible change: the app's code is reorganised so later updates are safer and quicker to make."
+   ]
+  },
+  {
    "version": "1.7.2",
    "date": "2026-11-23",
    "title": "A lighter tray icon",

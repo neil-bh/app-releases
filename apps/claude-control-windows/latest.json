@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.7.2",
- "tag": "claude-control-windows-v1.7.2",
- "asset": "ClaudeControl-1.7.2.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.2/ClaudeControl-1.7.2.exe",
- "sha256": "eba284c91ce32cb4b4a5a33808500f8b3ed792a7cbf1c6b7aeb5274ade6d0c24",
- "size": 14075904,
+ "version": "1.7.3",
+ "tag": "claude-control-windows-v1.7.3",
+ "asset": "ClaudeControl-1.7.3.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.3/ClaudeControl-1.7.3.exe",
+ "sha256": "c90f07274ae3ebf527611806aec409dbd6a37481831d6954b16e4f0cb07967e3",
+ "size": 14077952,
  "date": "2026-11-23",
- "notes_title": "A lighter tray icon",
+ "notes_title": "Tidier inside",
  "min_os": "Windows 10"
 }
