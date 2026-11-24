@@ -2,6 +2,15 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.13.2",
+   "date": "2026-11-24",
+   "title": "Widgets fit their size",
+   "notes": [
+    "On Android 12 and newer, the Needs you, Sessions and Live feed widgets now show fewer rows when you make them shorter, instead of cutting the last row off. At the normal size they look the same as before.",
+    "The Quick reply and Usage strip widgets can no longer be stretched taller than they look good."
+   ]
+  },
+  {
    "version": "1.13.1",
    "date": "2026-11-24",
    "title": "A shorter address",
