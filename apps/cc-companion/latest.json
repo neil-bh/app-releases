@@ -1,12 +1,12 @@
 {
  "app": "cc-companion",
- "version": "1.13.0",
- "tag": "cc-companion-v1.13.0",
- "asset": "ClaudeControlCompanion-1.13.0.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.13.0/ClaudeControlCompanion-1.13.0.apk",
- "sha256": "ab8ff835f4185c964b590a8f54c6489d69bd7c6d375656b98279e61fd2cc3ee1",
- "size": 4530267,
+ "version": "1.13.1",
+ "tag": "cc-companion-v1.13.1",
+ "asset": "ClaudeControlCompanion-1.13.1.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.13.1/ClaudeControlCompanion-1.13.1.apk",
+ "sha256": "313827c72ce1685f70168c0a1d482deb7718a42de380b82d428fed932309863c",
+ "size": 4530315,
  "date": "2026-11-24",
- "notes_title": "Bigger widgets",
+ "notes_title": "A shorter address",
  "min_os": "Android 10"
 }
