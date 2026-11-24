@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.13.0",
+   "date": "2026-11-24",
+   "title": "Bigger widgets",
+   "notes": [
+    "The home-screen widgets now use larger type, bigger rings and roomier spacing, so they fill the space they are given."
+   ]
+  },
+  {
    "version": "1.12.3",
    "date": "2026-11-23",
    "title": "A smaller app",
