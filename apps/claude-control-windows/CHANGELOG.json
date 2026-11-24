@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.5",
+   "date": "2026-11-24",
+   "title": "Change the address in Settings",
+   "notes": [
+    "Settings now has a Claude Control address row. Pressing Save asks, and Windows shows its own Change or Cancel box before anything is saved; Change restarts the app on the new address and you sign in again there."
+   ]
+  },
+  {
    "version": "1.7.4",
    "date": "2026-11-24",
    "title": "A shorter address",

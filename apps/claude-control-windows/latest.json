@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.7.4",
- "tag": "claude-control-windows-v1.7.4",
- "asset": "ClaudeControl-1.7.4.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.4/ClaudeControl-1.7.4.exe",
- "sha256": "b4375ea854520e44d68eea6b49a6a82c0fc29a4c4903d3fd2bda2a49f265b111",
- "size": 14077952,
+ "version": "1.7.5",
+ "tag": "claude-control-windows-v1.7.5",
+ "asset": "ClaudeControl-1.7.5.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.5/ClaudeControl-1.7.5.exe",
+ "sha256": "f15a124c5f1616c309a4eccd5edbd32b0ec5724d85ea7174d783fe04d10bcd98",
+ "size": 14087168,
  "date": "2026-11-24",
- "notes_title": "A shorter address",
+ "notes_title": "Change the address in Settings",
  "min_os": "Windows 10"
 }
