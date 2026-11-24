@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.6",
+   "date": "2026-11-24",
+   "title": "Settings finally reaches the app",
+   "notes": [
+    "Fixed: the Windows rows in Settings, including the Claude Control address, never appeared because the app refused the page's request. They show now."
+   ]
+  },
+  {
    "version": "1.7.5",
    "date": "2026-11-24",
    "title": "Change the address in Settings",
