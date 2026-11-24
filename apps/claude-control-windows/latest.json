@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.7.7",
- "tag": "claude-control-windows-v1.7.7",
- "asset": "ClaudeControl-1.7.7.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.7/ClaudeControl-1.7.7.exe",
- "sha256": "13549fea6e85812030ac0f9d50b6eb8a942d99789027d79a62262ff23ceb8c7d",
+ "version": "1.7.8",
+ "tag": "claude-control-windows-v1.7.8",
+ "asset": "ClaudeControl-1.7.8.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.8/ClaudeControl-1.7.8.exe",
+ "sha256": "14c5d9e9ad438624edbd14d4eb22ecd0282906d04e57520e7eb6f5631cd96f9b",
  "size": 14086144,
  "date": "2026-11-24",
- "notes_title": "Safer address change",
+ "notes_title": "Safer uninstall",
  "min_os": "Windows 10"
 }
