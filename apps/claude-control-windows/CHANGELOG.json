@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.4",
+   "date": "2026-11-24",
+   "title": "A shorter address",
+   "notes": [
+    "A new install now opens Claude Control at cc.promotioncity.co.uk. If you already set an address, nothing changes."
+   ]
+  },
+  {
    "version": "1.7.3",
    "date": "2026-11-23",
    "title": "Tidier inside",
