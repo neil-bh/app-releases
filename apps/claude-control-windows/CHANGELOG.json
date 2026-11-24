@@ -2,6 +2,14 @@
  "app": "claude-control-windows",
  "entries": [
   {
+   "version": "1.7.7",
+   "date": "2026-11-24",
+   "title": "Safer address change",
+   "notes": [
+    "Changing the Claude Control address now asks with an OK and Cancel box where Cancel is the default, so pressing Enter keeps your current address."
+   ]
+  },
+  {
    "version": "1.7.6",
    "date": "2026-11-24",
    "title": "Settings finally reaches the app",
