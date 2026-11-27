@@ -1,12 +1,12 @@
 {
  "app": "claude-control-windows",
- "version": "1.7.9",
- "tag": "claude-control-windows-v1.7.9",
- "asset": "ClaudeControl-1.7.9.exe",
- "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.9/ClaudeControl-1.7.9.exe",
- "sha256": "e04dc02de909ab57dcb4b3a35f75c2ba2cbc53c192eef5261dabf94079e4d461",
- "size": 14086656,
- "date": "2026-11-25",
- "notes_title": "Detached views close properly",
+ "version": "1.7.10",
+ "tag": "claude-control-windows-v1.7.10",
+ "asset": "ClaudeControl-1.7.10.exe",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v1.7.10/ClaudeControl-1.7.10.exe",
+ "sha256": "e30ba2410702b79865c1091d0b9263f6f03f04ff8a3feecb75158d08df7acef1",
+ "size": 14152704,
+ "date": "2026-11-27",
+ "notes_title": "CC is the app icon",
  "min_os": "Windows 10"
 }
