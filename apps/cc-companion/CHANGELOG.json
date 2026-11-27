@@ -2,6 +2,14 @@
  "app": "cc-companion",
  "entries": [
   {
+   "version": "1.13.3",
+   "date": "2026-11-27",
+   "title": "CC is the launcher icon",
+   "notes": [
+    "The app's icon is now CC, Claude Control's new face, matching the board. On Android 13 and newer the themed icon uses his silhouette."
+   ]
+  },
+  {
    "version": "1.13.2",
    "date": "2026-11-24",
    "title": "Widgets fit their size",
