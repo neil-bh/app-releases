@@ -249,8 +249,10 @@ def logo_path(app_id, root=ROOT):
 
 
 def index_table(root=ROOT):
-    """Three columns so the logo can be big: logo, the app (name, platform, one-liner), the latest (version, date, download)."""
-    rows = ["| | App | Latest |", "|:-:|---|---|"]
+    """Two columns, so the logo can be big: GitHub shrinks an image in a narrow column to nothing, so the logo sits
+    above the name in a column that is as wide as the name, and everything else (what it is, latest, download) is the
+    second column."""
+    rows = ["| App | Latest |", "|:-:|---|"]
     for app_id in app_ids(root):
         try:
             a = load_app(app_id, root)
@@ -261,14 +263,14 @@ def index_table(root=ROOT):
         lp = os.path.join(app_dir(app_id, root), "latest.json")
         l = read_json(lp) if os.path.exists(lp) else None
         logo = logo_path(app_id, root)
-        img = f'<a href="apps/{app_id}/README.md"><img src="{logo}" width="112" alt="{a["name"]}"></a>' if logo else ""
-        what = f"**[{a['name']}](apps/{app_id}/README.md)**<br>{a['platform']}<br>{a['summary']}"
+        img = f'<a href="apps/{app_id}/README.md"><img src="{logo}" width="112" alt=""></a><br>' if logo else ""
+        who = f"{img}**[{a['name']}](apps/{app_id}/README.md)**<br>{a['platform']}"
         if l:
-            latest = (f"**{l['version']}** · {l['date']}<br>[Download .{a['ext']}]({l['url']}) ({l['size'] / 1048576:.1f} MB)"
-                      f"<br>[What's new](apps/{app_id}/CHANGELOG.json)")
+            latest = (f"{a['summary']}<br><br>**{l['version']}** · {l['date']}<br>[Download .{a['ext']}]({l['url']}) "
+                      f"({l['size'] / 1048576:.1f} MB) · [What's new](apps/{app_id}/CHANGELOG.json)")
         else:
-            latest = "not published yet"
-        rows.append(f"| {img} | {what} | {latest} |")
+            latest = f"{a['summary']}<br><br>not published yet"
+        rows.append(f"| {who} | {latest} |")
     return "\n".join(rows)
 
 
