@@ -5,5 +5,5 @@
  "ext": "exe",
  "asset_name": "ClaudeControl",
  "min_os": "Windows 10",
- "summary": "The Claude Control board in a window of its own, with your Claude usage in the Windows notification area."
+ "summary": "Claude Control in a window of its own, with your Claude usage in the Windows notification area."
 }

@@ -2,7 +2,7 @@
 
 <img src="logo.png" width="96" align="right" alt="">
 
-The Claude Control board in a window of its own, with your Claude usage in the Windows notification area.
+Claude Control in a window of its own, with your Claude usage in the Windows notification area.
 
 | | |
 |---|---|
@@ -17,11 +17,11 @@ The Claude Control board in a window of its own, with your Claude usage in the W
 
 **Install:** download the `.exe` from the latest release and run it once: it installs itself for your Windows user
 (no administrator needed), adds a Start menu entry and can start with Windows. It is not code-signed, so Windows may
-warn that it is unrecognised: **More info › Run anyway**. It needs Tailscale signed in as the board's owner to reach the board.
+warn that it is unrecognised: **More info › Run anyway**. It needs Tailscale signed in as the owner of Claude Control to reach it.
 
 **Updates:** the app checks on start, every few hours and from the tray's *Check for updates*. It reads
 `latest.json` here, downloads the release asset, and installs it only when its size and SHA-256 match; when GitHub
-cannot be reached it asks the board on the Dell instead.
+cannot be reached it asks Claude Control on the Dell instead.
 
 Built apps only: the source is private. Check a download against the SHA-256 above (PowerShell:
 `Get-FileHash <file>`; Linux: `sha256sum <file>`).

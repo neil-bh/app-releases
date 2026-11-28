@@ -10,3 +10,4 @@ Newest at the bottom. Only the owner session writes here.
 - 2026-11-20: The home page is the README table (logo, one-liner, platform, latest, date, download); each app has a 128 px `logo.png`.
 - 2026-11-21: `tools/check` is the project gate: it validates, then runs `tools/test` (skipped when `APP_RELEASES_IN_TEST` is set).
 - 2026-11-21: Migrated to project baseline 0.64.0.
+- 2026-11-28: Logos are refreshed from each app's source icon when it changes (`tools/logo`); wording says Claude Control, not "the board".

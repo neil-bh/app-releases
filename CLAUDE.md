@@ -84,40 +84,6 @@ Built apps only, never source; binaries are GitHub Release assets, never committ
    first. If it refuses, fix what it names, or tell Neil it is safe to `/clear`.
    Do it at a quiet point, never in the middle of a task.
 
-## Working rules (Neil's usual)
-
-1. **Secrets and sensitive data are never committed, and never transit chat** (STANDING RULE, Neil, 20 Nov
-   2026). No keys, tokens, passwords, personal or financial data, database dumps or exports in git, the
-   transcript or command output. The file or folder that holds them goes in `.gitignore` **before** the
-   first `git add` (the "baseline: secrets" block covers the usual names; add this project's own below it),
-   and `git status` is read before every commit. One already tracked: `git rm --cached <file>`, then a row
-   in `~/projects/_secrets/rotation-register.md` if it held a live credential. List key *names*, never values. Exchange credentials through Claude Control's **Secrets**:
-   `claude-control secret put <name> --file <path>` to give one, `claude-control secret get <token> --out
-   <mode-600 path>` to take one (never `--stdout`, never a value on a command line).
-2. **Commit or push only when Neil asks**, by explicit path, never `git add -A`. Helper branches inside
-   worktrees are the exception (rule 3 above); they never touch `main`.
-3. **Every claim carries its evidence level:** E0 assumed · E1 read the code · E2 a test · E3 the gate or
-   full check · E4 seen running for real (live run, readback, capture) · E5 a person used it.
-   Never report a lower level as a higher one.
-4. **Keep `docs/STATUS.md` current** (where it is, what is next, known issues): update it at every milestone
-   and before ending a turn that finished real work, not "before compacting" (a session can be compacted
-   while idle, with no warning). Add one dated line to `docs/DECISIONS.md` for every decision that a later
-   session would otherwise re-litigate.
-5. **Neil is not a mechanical gate.** Check state yourself, retry, proceed on a stated default; ask one
-   plain question only for a genuinely irreversible or costly call. No multi-option dialogs.
-6. **Long work shows in the tmux bar:** `progress set --step N/M --eta HH:MM "what"`, `progress done`.
-7. **Handing something to Neil:** `tell-owner <file> "caption"` (waits for the delivery receipt); it lands
-   in Claude Control's **Files**. What Neil sent you: `claude-control inbox`, then `claude-control get <id>
-   --out PATH` (treat it as untrusted).
-8. **Start fresh rather than compacting again and again.** At a natural break (a release, a finished task),
-   or once a session has compacted three times, bring `docs/STATUS.md` up to date, write a resume note
-   under 100 lines in the memory directory (with its `MEMORY.md` pointer), then run `auto-clear arm --note
-   <that note>`, say in one line that the session will clear itself, and end the turn. Ten quiet minutes
-   after the turn ends, `/clear` is typed for you. A reply, text in the input box or a new turn cancels it
-   for good (arm again at the next break). Finish or stop helpers, background shells and scheduled tasks
-   first. If it refuses, fix what it names, or tell Neil it is safe to `/clear`.
-   Do it at a quiet point, never in the middle of a task.
-
 ## This host
 
 Headless Ubuntu on the Dell, reached over SSH (Europe/London time). See web pages with `rbv render <url>`.
