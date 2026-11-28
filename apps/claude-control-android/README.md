@@ -13,6 +13,7 @@ Android Auto. One app. (It was "CC Companion" until 1.0.0, and installs over it,
 | For the app's updater | [latest.json](latest.json) (`https://raw.githubusercontent.com/neil-bh/app-releases/main/apps/claude-control-android/latest.json`) |
 
 <!-- latest:start (tools/publish writes this line) -->
+**Latest:** [Claude Control for Android 1.13.3](https://github.com/neil-bh/app-releases/releases/download/claude-control-android-v1.13.3/ClaudeControlAndroid-1.13.3.apk) (2026-11-27, 4.3 MB, SHA-256 `eecb5d2c9198cb97275a2ff413c82c12164e847cc8b9f8fd83c078ccf5b89a9f`) · [all releases](https://github.com/neil-bh/app-releases/releases?q=claude-control-android&expanded=true)
 <!-- latest:end -->
 
 **Install:** on the Android phone, download the `.apk` from the latest release and open it (allow your browser to

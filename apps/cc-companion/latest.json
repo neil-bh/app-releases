@@ -1,9 +1,9 @@
 {
  "app": "cc-companion",
  "version": "1.13.3",
- "tag": "cc-companion-v1.13.3",
- "asset": "ClaudeControlCompanion-1.13.3.apk",
- "url": "https://github.com/neil-bh/app-releases/releases/download/cc-companion-v1.13.3/ClaudeControlCompanion-1.13.3.apk",
+ "tag": "claude-control-android-v1.13.3",
+ "asset": "ClaudeControlAndroid-1.13.3.apk",
+ "url": "https://github.com/neil-bh/app-releases/releases/download/claude-control-android-v1.13.3/ClaudeControlAndroid-1.13.3.apk",
  "sha256": "eecb5d2c9198cb97275a2ff413c82c12164e847cc8b9f8fd83c078ccf5b89a9f",
  "size": 4548452,
  "date": "2026-11-27",
