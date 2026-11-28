@@ -1,0 +1,10 @@
+{
+ "id": "claude-control-android",
+ "name": "Claude Control for Android",
+ "platform": "Android 10+",
+ "ext": "apk",
+ "asset_name": "ClaudeControlAndroid",
+ "min_os": "Android 10",
+ "summary": "Claude Control on your Android phone: your sessions, usage, widgets and approvals, and Claude Control in Android Auto.",
+ "mirror": ["cc-companion"]
+}

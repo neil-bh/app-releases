@@ -1,0 +1,453 @@
+{
+ "app": "claude-control-android",
+ "entries": [
+  {
+   "version": "1.13.3",
+   "date": "2026-11-27",
+   "title": "CC is the launcher icon",
+   "notes": [
+    "The app's icon is now CC, Claude Control's new face, matching the board. On Android 13 and newer the themed icon uses his silhouette."
+   ]
+  },
+  {
+   "version": "1.13.2",
+   "date": "2026-11-24",
+   "title": "Widgets fit their size",
+   "notes": [
+    "On Android 12 and newer, the Needs you, Sessions and Live feed widgets now show fewer rows when you make them shorter, instead of cutting the last row off. At the normal size they look the same as before.",
+    "The Quick reply and Usage strip widgets can no longer be stretched taller than they look good."
+   ]
+  },
+  {
+   "version": "1.13.1",
+   "date": "2026-11-24",
+   "title": "A shorter address",
+   "notes": [
+    "A new install now opens Claude Control at cc.promotioncity.co.uk. If you already set an address, nothing changes."
+   ]
+  },
+  {
+   "version": "1.13.0",
+   "date": "2026-11-24",
+   "title": "Bigger widgets",
+   "notes": [
+    "The home-screen widgets now use larger type, bigger rings and roomier spacing, so they fill the space they are given."
+   ]
+  },
+  {
+   "version": "1.12.3",
+   "date": "2026-11-23",
+   "title": "A smaller app",
+   "notes": [
+    "The app is about a third of its size (13.8 MB down to 4.5 MB) because unused code and resources are now stripped out. Nothing should look different."
+   ]
+  },
+  {
+   "version": "1.12.2",
+   "date": "2026-11-23",
+   "title": "Tidier settings code",
+   "notes": [
+    "No visible change: the Settings screen's code is split into clearer sections, and old internal notes are cleaned out."
+   ]
+  },
+  {
+   "version": "1.12.1",
+   "date": "2026-11-23",
+   "title": "Tidier inside",
+   "notes": [
+    "No visible change: the app's code is reorganised so later updates are safer and quicker to make."
+   ]
+  },
+  {
+   "version": "1.12.0",
+   "date": "2026-11-23",
+   "title": "Redrawn widgets and a quieter app",
+   "notes": [
+    "All widgets have a new look: gradient surfaces, status dots, tidy headers and round usage rings, with new previews in the widget picker.",
+    "Android Auto now follows the board's live stream instead of asking every 4 seconds, and falls back to asking if the stream is unavailable.",
+    "Smaller things: sign-in details are decrypted once instead of on every request, and the app shares one network connection pool."
+   ]
+  },
+  {
+   "version": "1.11.2",
+   "date": "2026-11-22",
+   "title": "Downloads keep their file name",
+   "notes": [
+    "Fixed: a video or other file downloaded from Files was saved with the extension .bin (for example holiday.mp4 became holiday.bin). It now keeps its own name and extension."
+   ]
+  },
+  {
+   "version": "1.11.1",
+   "date": "2026-11-22",
+   "title": "A small build to show the update bar",
+   "notes": [
+    "No visible change to the app itself. This build exists so the new update bar (a coloured strip at the top that says a newer version is ready) can be seen working."
+   ]
+  },
+  {
+   "version": "1.11.0",
+   "date": "2026-11-22",
+   "title": "Back goes back, and asks before leaving",
+   "notes": [
+    "The Back swipe now closes whatever is on top first: the menu or one of its pages, a sheet, the terminal, a viewer. Then it goes to the page you were on before, such as Files back to the Overview.",
+    "Only on the Overview with nothing open does it offer to leave. The first swipe shows \"Swipe back again to exit\"; a second swipe within two seconds closes the app.",
+    "New: Menu > Close app leaves straight away, so exiting is always one tap."
+   ]
+  },
+  {
+   "version": "1.10.0",
+   "date": "2026-11-21",
+   "title": "Six new home-screen widgets",
+   "notes": [
+    "Needs you: how many sessions are waiting for you, with the first three by name. Tap a name to open that session.",
+    "Sessions: up to five of your sessions with a dot (red needs you, green working, grey idle). Tap one to open it.",
+    "Quick reply: one tap into the session that needs you, or the busiest one if nobody is waiting.",
+    "Live feed: the last three things that happened, in plain words with the time. It never shows what was said.",
+    "Usage strip: both usage rings in one thin bar, with each reset time and a countdown.",
+    "Dell: whether the Dell is held awake or sitting idle, how many sessions are busy, and whether your phone can reach Claude Control.",
+    "They follow your light or dark theme, take your wallpaper's colour on Android 12 and later, and refresh together with the usage widgets, so they use no extra battery. Add them from the home screen: touch and hold, Widgets, Claude Control."
+   ]
+  },
+  {
+   "version": "1.9.1",
+   "date": "2026-11-21",
+   "title": "Widget previews are no longer blank",
+   "notes": [
+    "When you pick a Claude usage widget, the preview now shows a real example (rings, numbers and resets) in light or dark, instead of an empty box.",
+    "A widget you have just added shows \"Claude usage / Reading…\" until its first reading arrives, instead of a blank card."
+   ]
+  },
+  {
+   "version": "1.9.0",
+   "date": "2026-11-21",
+   "title": "One Claude Control icon",
+   "notes": [
+    "The launcher icon, the themed icon and the Android Auto tile are now the same Claude Control mark you see in the page header and on Windows: eight coral rays round a core. The little robot and the phone badge are gone from the icon (the robots stay inside the app)."
+   ]
+  },
+  {
+   "version": "1.8.0",
+   "date": "2026-11-21",
+   "title": "A real Microphone switch",
+   "notes": [
+    "Settings shows Microphone as a switch that matches Android's permission: on when allowed, off when refused, and an Allow button until you have been asked. It updates when you come back to the app after changing it in Android's settings.",
+    "Devices and sign-in sits with the Connection rows, next to Sign out. Widgets and Version and updates are gone from Settings (the version is in About), and Map style is now Map."
+   ]
+  },
+  {
+   "version": "1.7.0",
+   "date": "2026-11-21",
+   "title": "Safer, steadier screens",
+   "notes": [
+    "Sign in and Confirm it's you now fit properly on every phone: the title stays clear of the camera and clock, and the buttons stay above the keyboard. The screens scroll, and turning on dark mode or unfolding the phone no longer throws away a code you were typing.",
+    "In the car, a double tap on Send no longer types your message twice. Your message and the answer on the screen are shorter, so they are quicker to read at a glance; the answer is still read out in full.",
+    "Pulling down to reload now only works when the page is at the very top, so it can no longer reload halfway down and lose a message you were typing.",
+    "If notifications are off, the car's Confirm on the phone now opens the confirm screen on the phone instead of waiting for a notice that never comes.",
+    "Claude Control's address must start with https. Plain http never worked on a phone anyway, so it is now refused with a clear message instead of a board that will not load.",
+    "Saving files, reading settings and the fingerprint prompt can no longer be triggered by a hidden frame inside a page; only the Claude Control page itself can use them."
+   ]
+  },
+  {
+   "version": "1.6.1",
+   "date": "2026-11-21",
+   "title": "Fingerprint now found",
+   "notes": [
+    "Settings, Security, Devices and sign-in said this phone had no fingerprint unlock even when it has one. The app was missing the permission to ask Android about it. It now has it, so Turn on… works."
+   ]
+  },
+  {
+   "version": "1.6.0",
+   "date": "2026-11-21",
+   "title": "One Settings page for everything",
+   "notes": [
+    "The Device settings screen no longer holds its own copy of your options. Alerts, usage, the agents chip, buzz, voice, reading speed, the car and the microphone and notification permissions are now in Settings inside Claude Control, next to the Theme, Text size and Voice options, in one tidy list.",
+    "The app's own address, sign-in and sign-out are in that Settings page too, under Connection. Changing the address or signing out always asks you in a window the page cannot press for you.",
+    "Voice, reading speed and 'send straight after dictating' are now one setting each: change it in Settings and the car uses it too.",
+    "The old screen stays only as a short fallback for when Claude Control cannot be reached or the app is not linked yet: link to the Dell, sign in, check for updates, and a button that opens Settings.",
+    "The launcher icon's Settings shortcut and the gear now open Settings inside Claude Control."
+   ]
+  },
+  {
+   "version": "1.5.0",
+   "date": "2026-11-21",
+   "title": "Confirm it's you with your fingerprint",
+   "notes": [
+    "You can now confirm sensitive actions with your fingerprint instead of typing the 6-digit code. Open Settings, then Devices and sign-in, then Fingerprint, and choose Turn on. You type your code once to switch it on.",
+    "When something needs confirming, the fingerprint prompt appears first, in the app and on the notice the car leaves. 'Use code instead' is always there, and the code still works exactly as before.",
+    "The fingerprint key stays inside this phone and cannot be copied off it. If you add or remove a fingerprint in the phone's settings, the key is switched off for your safety and you turn it on again.",
+    "Nothing changes on the web or in Windows."
+   ]
+  },
+  {
+   "version": "1.4.3",
+   "date": "2026-11-21",
+   "title": "Set up the authenticator from the app",
+   "notes": [
+    "On a phone that is already signed in, 'Set up sign-in' now opens the board's own page for the authenticator step. Before, it sent you back to the 'Sign in this phone' screen and you could not get there."
+   ]
+  },
+  {
+   "version": "1.4.2",
+   "date": "2026-11-21",
+   "title": "A tidier bottom edge",
+   "notes": [
+    "The floating 'agents working' pill over the page is gone: it covered the bottom tabs and repeated the count already shown at the top. The buzz when agents finish or one needs you stays."
+   ]
+  },
+  {
+   "version": "1.4.1",
+   "date": "2026-11-20",
+   "title": "Safer sign-in",
+   "notes": [
+    "The app now forgets this phone's sign-in only when the board says the sign-in was revoked. A hiccup on the Dell no longer signs the phone out: you see Can't confirm you right now, try again, and stay signed in.",
+    "The sign-in token is never sent to another address if the board redirects a request, and downloads no longer carry it as a header.",
+    "With sign-in switched off on the board, nothing changes."
+   ]
+  },
+  {
+   "version": "1.4.0",
+   "date": "2026-11-20",
+   "title": "Sign in this phone",
+   "notes": [
+    "Claude Control can now ask this phone to sign in. When the board is set to require sign-in, the app shows a Sign in this phone screen with a short code; approve it from a signed-in device or on the Dell and the phone remembers it.",
+    "The sign-in token is kept encrypted with a key held in the phone's secure hardware store, is never shown and never written to the log.",
+    "Settings has a new Sign-in section: whether this phone is signed in, its name, and a button to sign out.",
+    "The car's Ask and replies carry the sign-in too. If the phone is not signed in the car says so in one calm line, and if a code is needed the phone shows a Confirm it's you notice to type the 6-digit code (the car never asks for one).",
+    "With sign-in switched off on the board, nothing changes."
+   ]
+  },
+  {
+   "version": "1.3.4",
+   "date": "2026-11-20",
+   "title": "Ask tab fits the car screen",
+   "notes": [
+    "The Ask tab no longer has a title line, so the Ask Claude Control button sits higher and is not cut off on a real car screen.",
+    "The app version is now a small quiet line under the prompt instead of the title."
+   ]
+  },
+  {
+   "version": "1.3.3",
+   "date": "2026-11-20",
+   "title": "The One Development badge",
+   "notes": [
+    "The About card on Device settings now ends with the One Development signature: the gold badge and the name.",
+    "The board inside the app does not play its short intro (the app has its own loading screen); the badge shows in the board's menu and About page as before."
+   ]
+  },
+  {
+   "version": "1.3.2",
+   "date": "2026-11-19",
+   "title": "Called Claude Control everywhere",
+   "notes": [
+    "Messages, settings and screens now say \"Claude Control\" where they used to say \"the board\"."
+   ]
+  },
+  {
+   "version": "1.3.1",
+   "date": "2026-11-19",
+   "title": "Device settings",
+   "notes": [
+    "This screen is now called Device settings: it holds what belongs to this phone (the link to the Dell, alerts, the car, updates). The board's menu has a matching Device settings page for text size, haptics and alerts, and reaches this screen from its App options row.",
+    "The small settings button on the Claude Control for Android app page in the board is gone; Device settings in the board's menu replaces it."
+   ]
+  },
+  {
+   "version": "1.3.0",
+   "date": "2026-11-19",
+   "title": "A new look, and pictures that move",
+   "notes": [
+    "Each session is now a small robot: green with a turning ring while it works, red with a breathing ring when it needs you, grey and asleep when idle, crossed-out when the board is offline.",
+    "In the car the pictures move slowly (a ring turning, a blink, about one step a second or slower) and only while something is working or waiting. Settings has a switch to keep them still.",
+    "New tab icons in the car, a coral accent on its buttons, and group pictures for the idle and \"more\" tiles.",
+    "On the phone: the robot on the loading and offline screens and in the agents chip, real back and settings icons, counts that run to their new value, a download bar with a moving sheen, and one set of colours, shapes and text sizes throughout.",
+    "New app icon: the robot inside the Claude Control rays, on the phone, the car tile and themed icons.",
+    "Car approvals are unchanged."
+   ]
+  },
+  {
+   "version": "1.2.10",
+   "date": "2026-11-19",
+   "title": "Tighter car approvals",
+   "notes": [
+    "The car now approves only a short list of read-only commands with fixed options; anything with other options, paths outside the project, or secrets goes to the phone.",
+    "The board refuses to show a command that contains a dashed line, so the car can't be shown a different command than the one that runs.",
+    "The Ask tab shows the app version in its title."
+   ]
+  },
+  {
+   "version": "1.2.9",
+   "date": "2026-11-19",
+   "title": "Version visible on the car",
+   "notes": [
+    "The Ask tab now shows the installed version in full (1.2.8 cut it off).",
+    "A permission screen no longer shows the previous turn's text under the question.",
+    "\"All done\" progress lines no longer show as what a session is doing."
+   ]
+  },
+  {
+   "version": "1.2.8",
+   "date": "2026-11-19",
+   "title": "Version on the car screen",
+   "notes": [
+    "The installed version shows on the car's Ask tab.",
+    "Idle sessions fold into one tile that shows a session, not a list icon.",
+    "A finished task no longer shows as \"done\" on the Working tab."
+   ]
+  },
+  {
+   "version": "1.2.7",
+   "date": "2026-11-19",
+   "title": "Car approvals on a short safe list",
+   "notes": [
+    "The car approves only simple read-only commands (git status, ls, running tests, touch in /tmp). Everything else, long or multi-line commands, and Edit or Write are approved on the phone.",
+    "After Approve the car goes back to the list, so nothing is covered or tapped twice.",
+    "A session that starts needing you is alerted on the car straight away, not after up to 15 minutes.",
+    "Working shows the task first, not just the tool; idle sessions fold into one tile on All.",
+    "Settings: no outlined switches, one main button per card, developer tools tucked away, alert speed moved to Alerts."
+   ]
+  },
+  {
+   "version": "1.2.6",
+   "date": "2026-11-19",
+   "title": "Clearer car screens",
+   "notes": [
+    "Approve refuses prompts it cannot read (it says to approve on the phone).",
+    "Session text is no longer cut mid-word, and the state is shown once.",
+    "The All grid never hides sessions: the last tile says how many more and opens the list."
+   ]
+  },
+  {
+   "version": "1.2.5",
+   "date": "2026-11-19",
+   "title": "Safer approvals in the car",
+   "notes": [
+    "Approve shows the real command and refuses risky ones, or any without a command, on the car (it says to approve on the phone).",
+    "Reply can no longer type into a permission prompt.",
+    "Tidier Settings status: update and board messages sit under their own buttons."
+   ]
+  },
+  {
+   "version": "1.2.4",
+   "date": "2026-11-19",
+   "title": "A redesigned Android Auto, and a tidier Settings and Apps",
+   "notes": [
+    "Android Auto: every session has its own robot, coloured by state, with a progress ring and time left while it works. The All tab is a grid. A session opens as one big picture with a single main action (Approve, Answer or Read aloud) and Ask about this.",
+    "Settings is one clean screen in short sections (Board, Alerts, Voice and car, Widgets, Display, Developer, About). The old web-app removal is gone.",
+    "Apps: one card per app with Latest and Current, a single Update button or 'You are on the latest version', and a Details link for the rest."
+   ]
+  },
+  {
+   "version": "1.2.3",
+   "date": "2026-11-19",
+   "title": "Fixes the microphone in Android Auto",
+   "notes": [
+    "Fixes the microphone in Android Auto: the car audio component was missing, so Talk to Claude Control showed a developer error. If the car mic is ever unavailable it now says so plainly and points to the phone."
+   ]
+  },
+  {
+   "version": "1.2.2",
+   "date": "2026-11-19",
+   "title": "Android Auto shows how long agents have left, and a finished Apps screen",
+   "notes": [
+    "Android Auto: working sessions show what they are doing in 40 characters and, when the session reports it, 'Step 3/5 · ~18 min left'; otherwise time in state.",
+    "Android Auto: when nothing needs you the first tab says 'All clear', how many are working and when the first finishes, with one tap to Working and one to Ask. Nothing bulk-approves.",
+    "Apps: each app has an icon tile, an N/A badge where it does not run, installed and latest versions, a download progress bar on Update, What's new that opens and closes smoothly, pull down to refresh and a quiet loading placeholder.",
+    "Headers on Settings and Apps settle in, and the agents chip pops when its count changes; all of it stays still when animations are off."
+   ]
+  },
+  {
+   "version": "1.2.1",
+   "date": "2026-11-19",
+   "title": "Family Game Night is no longer listed here",
+   "notes": [
+    "The Apps screen no longer lists Family Game Night; it now shows Claude Control and the Windows apps only."
+   ]
+  },
+  {
+   "version": "1.2.0",
+   "date": "2026-11-19",
+   "title": "A bolder Android Auto, a tidier phone app, and an Apps screen",
+   "notes": [
+    "Android Auto opens on Needs you: tabs for Needs you, Working, All and Ask, with counts, how long each has waited, and one short line saying what it wants.",
+    "A session is now one glanceable pane: its state in words and colour, one line, a two-sentence summary of its last reply, and a big green Approve.",
+    "New in the car: Ask Claude Control. Say what you want (for example an ETA, or to commit a project) and get one short answer; it tells you plainly if your board cannot do that yet.",
+    "Offline in the car now keeps the last known list and says so on its first row.",
+    "A new Apps screen lists the Claude Control family from app-releases: Claude Control and Family Game Night install here; Windows-only apps say N/A.",
+    "A small 'N agents working' chip over the board, with a buzz when agents finish or one needs you.",
+    "Loading and offline screens with motion; the offline page retries by itself when the network returns; pull down from the top to reload.",
+    "Settings regrouped into Board, Alerts and usage, Android Auto, Widgets and Advanced, with a first-run 'Get started' card.",
+    "A session that needs you now also appears on the car screen as an alert that opens its pane.",
+    "Updates are found whichever name the Android app is published under in app-releases."
+   ]
+  },
+  {
+   "version": "1.1.0",
+   "date": "2026-11-18",
+   "title": "Updates that keep Android Auto, and alerts when a session needs you",
+   "notes": [
+    "When UnknownAuto is on your phone, Get the update installs through it, so Android Auto keeps showing Claude Control. Without it the app installs the update itself and says Android Auto may drop it.",
+    "New in Settings: Alert me when a session needs you. The board's web alerts cannot reach the app, so the app now tells you itself, and takes the alert back once it is answered.",
+    "In the car it is now called Claude Control, like everywhere else.",
+    "The board knows it is running inside the app: no more offers to install the web app there, and the menu has App settings."
+   ]
+  },
+  {
+   "version": "1.0.0",
+   "date": "2026-11-18",
+   "title": "Claude Control, a full Android app",
+   "notes": [
+    "The app now opens your board full screen: Claude Control itself, no longer a companion to the web app. Dictation, read-aloud, uploads and downloads work inside it.",
+    "Usage notification, widgets, updates and Android Auto are all still here; Settings is on the app icon's long-press menu.",
+    "Settings can remove the old Claude Control web app installed from Chrome. It installs over CC Companion and keeps your board link and settings."
+   ]
+  },
+  {
+   "version": "0.5.0",
+   "date": "2026-11-18",
+   "title": "Updates from GitHub, installed by the app",
+   "notes": [
+    "Get the update now downloads the new build itself, checks its size and SHA-256, and hands it to Android to install.",
+    "Updates come from app-releases on GitHub, so they arrive wherever the phone is; the board on the Dell is used when GitHub cannot be reached.",
+    "The first time, Android asks you to allow CC Companion to install apps."
+   ]
+  },
+  {
+   "version": "0.4.0",
+   "date": "2026-11-17",
+   "title": "Now CC Companion, Claude Control on your Android phone",
+   "notes": [
+    "Renamed Claude Control Companion (CC Companion where space is short): it is now the general Android app, not just the car's.",
+    "New icon: the board's mark with a phone badge, the same everywhere, the car included.",
+    "Installs over 0.3.0 and keeps your board link and settings."
+   ]
+  },
+  {
+   "version": "0.3.0",
+   "date": "2026-11-17",
+   "title": "Usage on your phone",
+   "notes": [
+    "An optional notification shows your 5-hour and weekly usage, with when they reset and who is waiting.",
+    "Optional alerts at 70% and 90%, once per limit window.",
+    "Two home-screen widgets with the usage rings; the last numbers stay, greyed, when the board cannot be reached."
+   ]
+  },
+  {
+   "version": "0.2.0",
+   "date": "2026-11-17",
+   "title": "Linked to Claude Control",
+   "notes": [
+    "Renamed Claude Control Car Companion, with the board's own mark as its icon.",
+    "Links to your board from a setup link, says when an update is waiting and downloads it from the board."
+   ]
+  },
+  {
+   "version": "0.1.0",
+   "date": "2026-11-17",
+   "title": "Claude Control in Android Auto",
+   "notes": [
+    "See your sessions on the car's screen, hear the latest reply and answer a question by voice.",
+    "Approve a waiting session from the car, with a check that the question has not changed."
+   ]
+  }
+ ]
+}

@@ -105,6 +105,11 @@ def check_app(a, app_id):
             errs.append(f"{k} must be a template containing {{version}}")
     if "min_os" in a and not isinstance(a["min_os"], str):
         errs.append("min_os must be a string")
+    m = a.get("mirror", [])
+    if not isinstance(m, list) or not all(isinstance(x, str) and ID_RE.fullmatch(x) and x != app_id for x in m):
+        errs.append("mirror must be a list of other app ids")
+    if "superseded_by" in a and (not isinstance(a["superseded_by"], str) or not ID_RE.fullmatch(a["superseded_by"])):
+        errs.append("superseded_by must be an app id")
     return errs
 
 
@@ -244,23 +249,26 @@ def logo_path(app_id, root=ROOT):
 
 
 def index_table(root=ROOT):
-    rows = ["| | App | What it is | Platform | Latest | Released | Download |", "|:-:|---|---|---|---|---|---|"]
+    """Three columns so the logo can be big: logo, the app (name, platform, one-liner), the latest (version, date, download)."""
+    rows = ["| | App | Latest |", "|:-:|---|---|"]
     for app_id in app_ids(root):
         try:
             a = load_app(app_id, root)
         except Problem:
             continue
+        if a.get("superseded_by"):
+            continue  # an old feed kept only so installed copies can still update; not listed
         lp = os.path.join(app_dir(app_id, root), "latest.json")
         l = read_json(lp) if os.path.exists(lp) else None
         logo = logo_path(app_id, root)
-        img = f'<img src="{logo}" width="48" alt="">' if logo else ""
-        name = f"**[{a['name']}](apps/{app_id}/README.md)**"
+        img = f'<a href="apps/{app_id}/README.md"><img src="{logo}" width="112" alt="{a["name"]}"></a>' if logo else ""
+        what = f"**[{a['name']}](apps/{app_id}/README.md)**<br>{a['platform']}<br>{a['summary']}"
         if l:
-            ver, when = f"**{l['version']}** · [notes](apps/{app_id}/CHANGELOG.json)", l["date"]
-            dl = f"[.{a['ext']}, {l['size'] / 1048576:.1f} MB]({l['url']})"
+            latest = (f"**{l['version']}** · {l['date']}<br>[Download .{a['ext']}]({l['url']}) ({l['size'] / 1048576:.1f} MB)"
+                      f"<br>[What's new](apps/{app_id}/CHANGELOG.json)")
         else:
-            ver, when, dl = "not published yet", "", ""
-        rows.append(f"| {img} | {name} | {a['summary']} | {a['platform']} | {ver} | {when} | {dl} |")
+            latest = "not published yet"
+        rows.append(f"| {img} | {what} | {latest} |")
     return "\n".join(rows)
 
 

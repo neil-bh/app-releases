@@ -109,8 +109,22 @@ def publish(a):
     if errs:
         raise L.Problem("the record would not pass tools/check: " + "; ".join(errs))
 
+    # app.json "mirror": older feed ids that installed copies still read; they get the same release under their own id
+    mirrors = []
+    for mid in app.get("mirror", []):
+        mapp = L.load_app(mid)
+        mlatest = dict(latest, app=mid)
+        merrs = L.check_latest(mlatest, mapp)
+        if merrs:
+            raise L.Problem(f"the mirror feed {mid} would not pass tools/check: " + "; ".join(merrs)
+                            + " (its app.json tag/asset templates must match this app's)")
+        mcl = L.normalise_changelog(cl, mid)
+        mirrors.append((mid, mlatest, mcl))
     rel = {p: os.path.join(L.ROOT, p) for p in (f"apps/{app['id']}/latest.json", f"apps/{app['id']}/CHANGELOG.json",
                                                  f"apps/{app['id']}/README.md", "README.md")}
+    for mid, _l, _c in mirrors:
+        for f in ("latest.json", "CHANGELOG.json"):
+            rel[f"apps/{mid}/{f}"] = os.path.join(L.ROOT, f"apps/{mid}/{f}")
     dirty = git("status", "--porcelain", "--", *rel).stdout.strip()
     if dirty and not dry:
         raise L.Problem("these files have uncommitted changes; commit or discard them first:\n" + dirty)
@@ -167,6 +181,11 @@ def publish(a):
         else:
             L.write_json(rel[f"apps/{app['id']}/latest.json"], latest)
             idx_root = L.ROOT
+        for mid, mlatest, mcl in mirrors:
+            new[f"apps/{mid}/latest.json"] = mlatest
+            new[f"apps/{mid}/CHANGELOG.json"] = mcl
+            if not dry:
+                L.write_json(rel[f"apps/{mid}/latest.json"], mlatest)
         with open(rel["README.md"], encoding="utf-8") as f:
             new["README.md"] = L.root_readme(f.read(), idx_root)
         for p, body in new.items():

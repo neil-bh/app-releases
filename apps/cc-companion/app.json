@@ -1,9 +1,12 @@
 {
  "id": "cc-companion",
- "name": "CC Companion",
+ "name": "CC Companion (now Claude Control for Android)",
  "platform": "Android 10+",
  "ext": "apk",
  "asset_name": "ClaudeControlCompanion",
  "min_os": "Android 10",
- "summary": "Claude Control Companion: usage notification and widgets on an Android phone, and Claude Control in Android Auto."
+ "summary": "Old name of Claude Control for Android; this feed is kept so installed copies can still update.",
+ "tag": "claude-control-android-v{version}",
+ "asset": "ClaudeControlAndroid-{version}.apk",
+ "superseded_by": "claude-control-android"
 }

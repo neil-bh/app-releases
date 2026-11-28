@@ -162,7 +162,7 @@ class Publish(unittest.TestCase):
         self.assertEqual(l["notes_title"], "Title 9.0.0")
         self.assertEqual(r.json("apps/claude-control-windows/CHANGELOG.json")["app"], "claude-control-windows")
         with open(os.path.join(r.root, "README.md")) as f:
-            self.assertIn("**9.0.0** · [notes](apps/claude-control-windows/CHANGELOG.json)", f.read())
+            self.assertIn("**9.0.0** · 2026-11-18<br>[Download .exe](https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v9.0.0/", f.read())
         with open(os.path.join(r.root, "README.md")) as f:
             self.assertIn("(https://github.com/neil-bh/app-releases/releases/download/claude-control-windows-v9.0.0/", f.read())
         with open(os.path.join(r.root, "apps/claude-control-windows/README.md")) as f:
@@ -229,6 +229,27 @@ class Publish(unittest.TestCase):
         apk = r.file("c.apk", b"PK\x05\x06" + b"\x00" * 18 + b"\x00" + key + b"\x00")
         p = r.run("publish", "cc-companion", "9.0.0", apk, "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
         self.assertNotEqual(p.returncode, 0)              # another app gets no exception
+
+    def test_mirror_feed_gets_the_same_release(self):
+        r = self.r
+        app = os.path.join(r.root, "apps/rbv-control/app.json")
+        d = json.load(open(app))
+        d["mirror"] = ["tunnel-control"]
+        json.dump(d, open(app, "w"))
+        t = os.path.join(r.root, "apps/tunnel-control/app.json")
+        d = json.load(open(t))
+        d.update(tag="rbv-control-v{version}", asset="RBVControl-{version}.exe", superseded_by="rbv-control")
+        json.dump(d, open(t, "w"))
+        sh("git", "add", "-A", cwd=r.root)
+        sh("git", "commit", "-q", "-m", "mirror", cwd=r.root)
+        p = r.run("publish", "rbv-control", "9.0.0", r.file("r.exe", EXE), "--changelog", r.changelog("r", ["9.0.0", "1.0.0"]), "--notes-from-changelog")
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        m = r.json("apps/tunnel-control/latest.json")
+        self.assertEqual((m["app"], m["version"], m["tag"]), ("tunnel-control", "9.0.0", "rbv-control-v9.0.0"))
+        self.assertEqual(m["sha256"], r.json("apps/rbv-control/latest.json")["sha256"])
+        with open(os.path.join(r.root, "README.md")) as f:
+            self.assertEqual(f.read().count("Tunnel Control"), 0)   # a superseded feed is not listed
+        self.assertEqual(r.run("check").returncode, 0)
 
     def test_wrong_kind_of_file(self):
         r = self.r
