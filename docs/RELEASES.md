@@ -27,10 +27,19 @@ moved to the uniform scheme with build numbers as versions, ADR-0020 in its proj
 | App id | App | Platform |
 |---|---|---|
 | `claude-control-windows` | Claude Control for Windows | Windows |
-| `cc-companion` | CC Companion (Claude Control Companion) | Android |
+| `claude-control-android` | Claude Control for Android (was CC Companion) | Android |
+| `cc-companion` | old feed of the above, not listed (`superseded_by`) | Android |
 | `tunnel-control` | Tunnel Control | Windows |
 | `rbv-control` | RBV Control | Windows |
 | `family-game-night` | Family Game Night | Android |
+
+## Renamed apps: `mirror` and `superseded_by`
+
+When an app changes id (CC Companion became Claude Control for Android) copies already installed keep reading their
+old feed. The new app's `app.json` lists the old id under `"mirror"`; each `tools/publish` of the new app then also
+writes `apps/<old-id>/latest.json` and `CHANGELOG.json` (`app` = the old id, the same release and file), so the old
+copy can update straight to the new app. The old app's `app.json` carries `"superseded_by"` and the tag/asset
+templates of the new one: it is not listed in the home table and `tools/publish` refuses to publish it directly.
 
 ## latest.json
 

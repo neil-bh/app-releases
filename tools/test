@@ -208,7 +208,7 @@ class Publish(unittest.TestCase):
         buf = io.BytesIO()
         with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
             z.writestr("classes.dex", b"dex\n" + b"config password=Hunter2Hunter2 end")
-        p = r.run("publish", "cc-companion", "9.0.0", r.file("c.apk", buf.getvalue()), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
+        p = r.run("publish", "claude-control-android", "9.0.0", r.file("c.apk", buf.getvalue()), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
         self.assertNotEqual(p.returncode, 0)
         self.assertIn("password_assignment at offset classes.dex:", p.stdout)
         self.assertNotIn("Hunter2", p.stdout + p.stderr)
@@ -227,7 +227,7 @@ class Publish(unittest.TestCase):
         p = r.run("publish", "family-game-night", "999999", apk, "--changelog", r.changelog("f", ["999999", "454186"]), "--dry-run")
         self.assertEqual(p.returncode, 0, p.stdout + p.stderr)   # the allowed key alone passes
         apk = r.file("c.apk", b"PK\x05\x06" + b"\x00" * 18 + b"\x00" + key + b"\x00")
-        p = r.run("publish", "cc-companion", "9.0.0", apk, "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
+        p = r.run("publish", "claude-control-android", "9.0.0", apk, "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
         self.assertNotEqual(p.returncode, 0)              # another app gets no exception
 
     def test_mirror_feed_gets_the_same_release(self):
@@ -250,10 +250,13 @@ class Publish(unittest.TestCase):
         with open(os.path.join(r.root, "README.md")) as f:
             self.assertEqual(f.read().count("Tunnel Control"), 0)   # a superseded feed is not listed
         self.assertEqual(r.run("check").returncode, 0)
+        p = r.run("publish", "tunnel-control", "9.0.1", r.file("t.exe", EXE), "--changelog", r.changelog("t", ["9.0.1"]), "--dry-run")
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("publish rbv-control instead", p.stderr)
 
     def test_wrong_kind_of_file(self):
         r = self.r
-        p = r.run("publish", "cc-companion", "9.0.0", r.file("c.exe", EXE), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
+        p = r.run("publish", "claude-control-android", "9.0.0", r.file("c.exe", EXE), "--changelog", r.changelog("c", ["9.0.0"]), "--dry-run")
         self.assertNotEqual(p.returncode, 0)
         self.assertIn("not a .apk file", p.stderr)
 

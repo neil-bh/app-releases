@@ -60,6 +60,8 @@ def main(argv=None):
 def publish(a):
     dry = a.dry_run
     app = L.load_app(a.app)
+    if app.get("superseded_by"):
+        raise L.Problem(f"{app['id']} is an old feed; publish {app['superseded_by']} instead (it updates this feed too)")
     version = a.version
     if not L.VER_RE.fullmatch(version):
         raise L.Problem(f"version {version!r} is not numbers and dots")
